@@ -37,9 +37,19 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="LiteDB" Version="5.0.15" />
+      <PackageReference Include="Dragablz" Version="0.0.3.234" />
+      <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.0" />
+      <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+      <PackageReference Include="MahApps.Metro" Version="2.4.9" />
+      <PackageReference Include="MahApps.Metro.IconPacks.FontAwesome" Version="4.11.0" />
+      <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
+      <PackageReference Include="MaterialDesignInXamlToolkitAddOns" Version="0.0.6" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.2" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
     </ItemGroup>
 
 </Project>

@@ -14,6 +14,8 @@ public partial class MainWindow
     {
         InitializeComponent();
         using var context = new ShelterContext();
+        // context.Database.EnsureDeleted(); // uncomment to delete the database
+        context.Database.EnsureCreated();
         Animals = context.Animals.ToList();
         Keepers = context.Keepers.ToList();
         Visits = context.Visits.ToList();
