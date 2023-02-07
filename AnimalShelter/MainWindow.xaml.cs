@@ -21,6 +21,18 @@ public partial class MainWindow
         Visits = context.Visits.ToList();
         DataContext = this;
     }
+    
+    // TODO: otwieranie odpowiedniego okna na podstawie zalogowanej roli - App możę wtedy mieć entrypoint tutaj
+    // public MainWindow(UserRole Role)
+    // {
+    //     Content = Role switch
+    //     {
+    //         UserRole.Administrator => new AdminWindow(),
+    //         UserRole.Keeper => new KeeperWindow(),
+    //         UserRole.Veterinarian => new VetWindow(),
+    //         _ => new LoginWindow()
+    //     };
+    // }
 
     private void ShowAnimalsView(object sender, RoutedEventArgs e)
     {

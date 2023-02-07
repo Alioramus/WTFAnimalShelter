@@ -21,6 +21,7 @@ public partial class App
     {
         base.OnStartup(e);
         var facade = new DatabaseFacade( new ShelterContext());
+        // facade.EnsureDeleted();
         facade.EnsureCreated();
         Console.WriteLine("Begin init");
         AttachToParentConsole();

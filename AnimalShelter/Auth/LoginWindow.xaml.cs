@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 
 namespace AnimalShelter;
 
@@ -8,18 +7,20 @@ namespace AnimalShelter;
 /// </summary>
 public partial class LoginWindow
 {
+    private readonly Auth _auth;
+
     public LoginWindow()
     {
         InitializeComponent();
+        _auth = new Auth();
+
     }
 
     private void Login_Click(object sender, RoutedEventArgs e)
     {
         var username = UsernameText.Text;
         var password = PasswordText.Password;
-        using var dataContext = new ShelterContext();
-        var correctCredentials = dataContext.Users.Any(user => user.Name == username && user.Password == password);
-        if (correctCredentials)
+        if (_auth.Login(username, password))
         {
             new MainWindow().Show();
             Close();
@@ -27,5 +28,12 @@ public partial class LoginWindow
         {
             MessageBox.Show("Invalid credentials.");
         }
+    }
+
+    private void Register_Click(object sender, RoutedEventArgs e)
+    {
+        var registerWindow = new RegisterWindow();
+        registerWindow.Show();
+        Close();
     }
 }
