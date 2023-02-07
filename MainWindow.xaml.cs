@@ -18,11 +18,20 @@ namespace WTFAnimalShelter
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+
+
     public partial class MainWindow : Window
     {
+
+        public List<Animal> Animals { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            using(ShelterContext context = new ShelterContext())
+            {
+                this.Animals = context.Animals.ToList();
+            }
+            this.DataContext = this;
         }
     }
 }

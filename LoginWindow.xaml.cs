@@ -28,7 +28,7 @@ namespace WTFAnimalShelter
         {
             var Username = UsernameText.Text;
             var Password = PasswordText.Password;
-            using(UserDataContext dataContext = new UserDataContext())
+            using(ShelterContext dataContext = new ShelterContext())
             {
                 bool correctCredentials = dataContext.Users.Any(user => user.Name == Username && user.Password == Password);
                 if (correctCredentials)

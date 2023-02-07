@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock>SIEMA</TextBlock>
+        <ListView ItemsSource="{Binding Animals}">
+
+            <ListView.View>
+
+                <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="Name" Width="100"/>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Type}" Header="Type" Width="100"/>
+
+                </GridView>
+
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

@@ -2,7 +2,7 @@
 
 namespace WTFAnimalShelter
 {
-    public class UserDataContext:DbContext
+    public class ShelterContext:DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -10,5 +10,7 @@ namespace WTFAnimalShelter
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Animal> Animals { get; set; }
+
     }
 }
