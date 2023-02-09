@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Autofac;
 
 namespace AnimalShelter;
 
 public partial class MainWindow
 {
+    private readonly ShelterContext _context;
     public List<Animal> Animals { get; set; }
     public List<Keeper> Keepers { get; set; }
     public List<Visit> Visits { get; set; }
@@ -15,12 +17,11 @@ public partial class MainWindow
     public MainWindow()
     {
         InitializeComponent();
-        using var context = new ShelterContext();
-        // context.Database.EnsureDeleted(); // uncomment to delete the database
-        context.Database.EnsureCreated();
-        Animals = context.Animals.ToList();
-        Keepers = context.Keepers.ToList();
-        Visits = context.Visits.ToList();
+        _context = App.AppContainer.Resolve<ShelterContext>();
+        _context.Database.EnsureCreated();
+        Animals = _context.Animals.ToList();
+        Keepers = _context.Keepers.ToList();
+        Visits = _context.Visits.ToList();
         DataContext = this;
     }
 
@@ -85,8 +86,7 @@ public partial class MainWindow
     {
         // Tutaj można uaktualnić widok klasy MainWindow po dodaniu zwierzęcia
         // nie wiem czy da sie to zrobic lepiej :/
-        using var context = new ShelterContext();
-        Animals = context.Animals.ToList();
+        Animals = _context.Animals.ToList();
         AnimalList.SetValue(ItemsControl.ItemsSourceProperty, Animals);
     }
 

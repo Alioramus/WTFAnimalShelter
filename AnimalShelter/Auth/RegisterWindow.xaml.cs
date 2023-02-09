@@ -1,15 +1,19 @@
 ﻿using System.Windows;
+using Autofac;
+using NLog;
 
 namespace AnimalShelter;
 
 public partial class RegisterWindow
 {
-    private readonly AuthService _authService;
+    private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+    private readonly IAuthService _authService;
 
     public RegisterWindow()
     {
         InitializeComponent();
-        _authService = new AuthService();
+        using var scope = App.AppContainer.BeginLifetimeScope();
+        _authService = scope.Resolve<IAuthService>();
     }
 
     private void RegisterButton_Click(object sender, RoutedEventArgs e)

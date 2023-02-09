@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Autofac;
 
 namespace AnimalShelter;
 
@@ -7,12 +8,13 @@ namespace AnimalShelter;
 /// </summary>
 public partial class LoginWindow
 {
-    private readonly AuthService _authService;
+    private readonly IAuthService _authService;
 
     public LoginWindow()
     {
         InitializeComponent();
-        _authService = new AuthService();
+        using var scope = App.AppContainer.BeginLifetimeScope();
+        _authService = scope.Resolve<IAuthService>();
     }
 
     private void Login_Click(object sender, RoutedEventArgs e)

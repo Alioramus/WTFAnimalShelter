@@ -2,19 +2,27 @@
 
 namespace AnimalShelter;
 
-// TODO: use DI
-public class AuthService
+public interface IAuthService
 {
+    public bool Login(string username, string password);
+    public bool Register(string username, string password, UserRole role);
+}
+public class AuthService: IAuthService
+{
+    private readonly ShelterContext _context;
+    public AuthService(ShelterContext context)
+    {
+        _context = context;
+    }
+    
     public bool Login(string username, string password)
     {
-        using var dataContext = new ShelterContext();
-        return dataContext.Users.Any(user => user.Username == username && user.Password == password);
+        return _context.Users.Any(user => user.Username == username && user.Password == password);
     }
     
     public bool Register(string username, string password, UserRole role)
     {
-        using var context = new ShelterContext();
-        if (context.Users.Any(u => u.Username == username))
+        if (_context.Users.Any(u => u.Username == username))
         {
             return false;
         }
@@ -26,8 +34,8 @@ public class AuthService
             Role = role
         };
 
-        context.Users.Add(user);
-        context.SaveChanges();
+        _context.Users.Add(user);
+        _context.SaveChanges();
 
         return true;
     }

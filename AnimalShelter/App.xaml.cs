@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Windows;
+using Autofac;
+using NLog;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace AnimalShelter;
@@ -10,6 +12,8 @@ namespace AnimalShelter;
 /// </summary>
 public partial class App
 {
+    private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+    public static IContainer AppContainer { get; private set; }
     private const int AttachParentProcess = -1;
 
     /// <summary>
@@ -20,11 +24,42 @@ public partial class App
     protected override void OnStartup(StartupEventArgs e)
     {
         base.OnStartup(e);
-        var facade = new DatabaseFacade( new ShelterContext());
+        AttachToParentConsole();
+        ConfigureLogging();
+
+        Logger.Info("Begin init");
+
+        ConfigureDependencyInjection();
+        ConfigureDatabase();
+
+        Logger.Info("End init");
+    }
+
+    private static void ConfigureLogging()
+    {
+        LogManager.Setup().LoadConfiguration(builder => {
+            builder.ForLogger().FilterMinLevel(LogLevel.Info).WriteToConsole();
+            builder.ForLogger().FilterMinLevel(LogLevel.Debug).WriteToFile(fileName: "file.txt");
+        });
+    }
+
+    private void ConfigureDatabase()
+    {
+        Logger.Info("DB init");
+        var facade = new DatabaseFacade(AppContainer.Resolve<ShelterContext>());
         // facade.EnsureDeleted();
         facade.EnsureCreated();
-        Console.WriteLine("Begin init");
-        AttachToParentConsole();
+        Logger.Info("DB init done");
+    }
+
+    private void ConfigureDependencyInjection()
+    {
+        Logger.Info("Dependency injection init");
+        var builder = new ContainerBuilder();
+        builder.RegisterType<ShelterContext>().AsSelf().SingleInstance();
+        builder.RegisterType<AuthService>().As<IAuthService>().SingleInstance();
+        AppContainer = builder.Build();
+        Logger.Info("Dependency injection init done");
     }
 
     [DllImport("kernel32.dll")]

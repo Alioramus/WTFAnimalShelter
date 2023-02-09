@@ -1,19 +1,23 @@
 ﻿using System;
 using System.Windows;
+using Autofac;
 
 namespace AnimalShelter;
 
 public partial class AddAnimalWindow
 {
+    private readonly ShelterContext _context;
+    
     public AddAnimalWindow()
     {
         InitializeComponent();
+        using var scope = App.AppContainer.BeginLifetimeScope();
+        _context = scope.Resolve<ShelterContext>();
         AnimalBorn.SelectedDate = DateTime.Now;
     }
     
     private void AddAnimal(object sender, RoutedEventArgs e)
     {
-        using var context = new ShelterContext();
         var animal = new Animal
         {
             Name = AnimalName.Text,
@@ -26,8 +30,8 @@ public partial class AddAnimalWindow
             //Keeper = CurrentKeeper.Text,
             //AdoptedBy = AdoptedBy.Text,
         };
-        context.Animals.Add(animal);
-        context.SaveChanges();
+        _context.Animals.Add(animal);
+        _context.SaveChanges();
         MessageBox.Show("Animal added successfully.");
         Close();
         var mainWindow = Application.Current.MainWindow as MainWindow;
