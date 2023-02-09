@@ -16,9 +16,9 @@ public partial class UsernameService : IUsernameService
     public (bool, Result) IsCorrectLength(string username) =>
         username.Length switch
         {
-            < 5 => (false, TOO_SHORT: Result.TooShort),
-            > 20 => (false, TOO_LONG: Result.TooLong),
-            _ => (true, CORRECT: Result.Correct)
+            < 5 => (false, Result.TooShort),
+            > 20 => (false, Result.TooLong),
+            _ => (true, Result.Correct)
         };
 
     public (bool, Result) IsCorrectCharacters(string username)
@@ -27,7 +27,7 @@ public partial class UsernameService : IUsernameService
         var matched = regex.IsMatch(username);
         if (!matched)
             Logger.Warn("Username doesn't match regex.");
-        return matched  ? (true, CORRECT: Result.Correct) : (false, INVALID_CHARACTERS: Result.InvalidCharacters);
+        return matched  ? (true, Result.Correct) : (false, Result.InvalidCharacters);
     }
     
     // start with a letter, allow letter or number

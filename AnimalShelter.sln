@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalShelter", "AnimalShel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalShelterTests", "AnimalShelterTests\AnimalShelterTests.csproj", "{EC34F2DD-17A7-4F37-AE30-747EEAFCD155}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalShelterTestsE2E", "AnimalShelterTestsE2E\AnimalShelterTestsE2E.csproj", "{79994CD8-EE59-4683-97E7-36124EC5F887}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EC34F2DD-17A7-4F37-AE30-747EEAFCD155}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC34F2DD-17A7-4F37-AE30-747EEAFCD155}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC34F2DD-17A7-4F37-AE30-747EEAFCD155}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79994CD8-EE59-4683-97E7-36124EC5F887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79994CD8-EE59-4683-97E7-36124EC5F887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79994CD8-EE59-4683-97E7-36124EC5F887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79994CD8-EE59-4683-97E7-36124EC5F887}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,8 +19,14 @@ public partial class LoginWindow
         using var scope = App.AppContainer.BeginLifetimeScope();
         _authService = scope.Resolve<IAuthService>();
     }
+    
+    public LoginWindow(IAuthService authService)
+    {
+        InitializeComponent();
+        _authService = authService;
+    }
 
-    private void Login_Click(object sender, RoutedEventArgs e)
+    public void Login_Click(object sender, RoutedEventArgs e)
     {
         Logger.Info("Clicked login button.");
         var username = UsernameText.Text;

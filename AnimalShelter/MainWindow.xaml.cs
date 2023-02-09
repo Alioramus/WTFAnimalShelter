@@ -19,7 +19,6 @@ public partial class MainWindow
     {
         InitializeComponent();
         _context = App.AppContainer.Resolve<ShelterContext>();
-        _context.Database.EnsureCreated();
         Keepers = _context.Keepers.ToList();
         Visits = _context.Visits.ToList();
         DataContext = new NavigationViewModel(_context);

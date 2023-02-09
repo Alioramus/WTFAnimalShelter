@@ -13,7 +13,7 @@ namespace AnimalShelter;
 public partial class App
 {
     private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-    public static IContainer AppContainer { get; private set; }
+    public static IContainer AppContainer { get; set; }
     private const int AttachParentProcess = -1;
 
     /// <summary>
