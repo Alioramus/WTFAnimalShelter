@@ -5,16 +5,16 @@
     <Grid>
         <StackPanel Margin="20">
             <TextBlock Text="Username" Margin="0,10,0,5" />
-            <TextBox x:Name="UsernameText" />
+            <TextBox x:Name="UsernameText" TextChanged="UsernameText_OnTextChanged"/>
             <TextBlock Text="Password" Margin="0,10,0,5" />
-            <PasswordBox x:Name="PasswordText" />
+            <PasswordBox x:Name="PasswordText" PasswordChanged="PasswordText_OnPasswordChanged"/>
             <TextBlock Text="Role" Margin="0,10,0,5" />
             <ComboBox x:Name="RoleCombo" SelectedIndex="0">
                 <ComboBoxItem Content="Keeper" />
                 <ComboBoxItem Content="Veterinarian" />
                 <ComboBoxItem Content="Administrator" />
             </ComboBox>
-            <Button x:Name="RegisterButton" Content="Register" Click="RegisterButton_Click" Margin="0,20,0,0" />
+            <Button x:Name="RegisterButton" IsEnabled="False" Content="Register" Click="RegisterButton_Click" Margin="0,20,0,0" />
             <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_OnClick" Margin="0,20,0,0" />
         </StackPanel>
     </Grid>
