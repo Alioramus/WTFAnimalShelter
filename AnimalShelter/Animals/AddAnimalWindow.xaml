@@ -3,8 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:animalShelter="clr-namespace:AnimalShelter"
         mc:Ignorable="d"
         Title="AddAnimalWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="Gender"
+                            ObjectType="{x:Type animalShelter:Gender}"
+                            MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="animalShelter:Gender" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -20,7 +30,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel>
-            <TextBlock>Name:</TextBlock>
+            <TextBlock Text="Name:" FontWeight="Bold" />
             <TextBox Name="AnimalName" />
         </StackPanel>
 
@@ -31,38 +41,40 @@
 
         <StackPanel Grid.Row="2">
             <TextBlock Text="Species: " FontWeight="Bold" />
-            <TextBlock Text="{Binding Species}" />
+            <TextBox Name="AnimalSpecies" />
         </StackPanel>
 
         <StackPanel Grid.Row="3">
             <TextBlock Text="Gender: " FontWeight="Bold" />
-            <TextBox Text="{Binding Gender}" />
+            <ComboBox Name="AnimalGender" 
+                      ItemsSource="{Binding Source={StaticResource Gender}}"
+                      SelectedItem="{x:Static animalShelter:Gender.Male}" />
         </StackPanel>
 
         <StackPanel Grid.Row="4">
             <TextBlock Text="Born: " FontWeight="Bold" />
-            <TextBox Text="{Binding Born}" />
+            <DatePicker Name="AnimalBorn" />
         </StackPanel>
 
         <StackPanel Grid.Row="5">
             <TextBlock Text="Description: " FontWeight="Bold" />
-            <TextBox Text="{Binding Description}" />
+            <TextBox Name="AnimalDescription" />
         </StackPanel>
         <StackPanel Grid.Row="6">
             <TextBlock Text="Adopted: " FontWeight="Bold" />
-            <TextBox Text="{Binding Adopted}" />
+            <CheckBox Name="AnimalAdopted" />
         </StackPanel>
         <StackPanel Grid.Row="7">
             <TextBlock Text="Current Keeper: " FontWeight="Bold" />
-            <TextBox Text="{Binding CurrentKeeper}" />
+            <TextBox Name="AnimalCurrentKeeper" />
         </StackPanel>
         <StackPanel Grid.Row="8">
             <TextBlock Text="Adopted By: " FontWeight="Bold" />
-            <TextBox Text="{Binding AdoptedBy}" />
+            <TextBox Name="AnimalAdoptedBy" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="9">
-            <Button>Add Animal</Button>
-            <Button>Cancel</Button>
+            <Button Click="AddAnimal">Add Animal</Button>
+            <Button Click="Cancel">Cancel</Button>
         </StackPanel>
     </Grid>
 </Window>

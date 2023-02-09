@@ -7,22 +7,23 @@ namespace AnimalShelter;
 /// </summary>
 public partial class LoginWindow
 {
-    private readonly Auth _auth;
+    private readonly AuthService _authService;
 
     public LoginWindow()
     {
         InitializeComponent();
-        _auth = new Auth();
-
+        _authService = new AuthService();
     }
 
     private void Login_Click(object sender, RoutedEventArgs e)
     {
         var username = UsernameText.Text;
         var password = PasswordText.Password;
-        if (_auth.Login(username, password))
+        if (_authService.Login(username, password))
         {
-            new MainWindow().Show();
+            var mainWindow = new MainWindow();
+            Application.Current.MainWindow = mainWindow;
+            mainWindow.Show();
             Close();
         } else
         {

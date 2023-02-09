@@ -26,7 +26,7 @@
         <!-- Tutaj widoki? zamienić osobne okna na jakieś moduły -->
         <!-- To proponowalbym aby był taki "animals view", można kliknąć na animala i się wtedy sie otwiera to co sie kliknie "Animal",
          na razie jest zahardkodowane na pierwszego -->
-        <ListView Grid.Row="1" ItemsSource="{Binding Animals}">
+        <ListView Name="AnimalList" Grid.Row="1" ItemsSource="{Binding Animals}">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Animal Information">
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Id}" Header="Id" Width="100"/>
@@ -40,9 +40,9 @@
             </ListView.View>
         </ListView>
         <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <Button Content="Add Animal"  Margin="10" />
-            <Button Content="Remove Animal"  Margin="10" />
-            <Button Content="Edit Animal"   Margin="10" />
+            <Button Click="ShowAddAnimal" Content="Add Animal"  Margin="10" />
+            <Button Click="RemoveAnimal" Content="Remove Animal"  Margin="10" />
+            <Button Click="ShowEditAnimal" Content="Edit Animal"   Margin="10" />
         </StackPanel>
     </Grid>
 </Window>

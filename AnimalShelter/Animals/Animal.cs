@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace AnimalShelter;
 
@@ -15,6 +16,42 @@ public class Animal
     public DateTime Born { get; set; }
     public string Description { get; set; }
     public bool Adopted { get; set; }
+
+    public void Update(ShelterContext context)
+    {
+        var animal = context.Animals.FirstOrDefault(a => a.Id == Id);
+
+        if (animal != null)
+        {
+            animal.Name = Name;
+            animal.Breed = Breed;
+            animal.Species = Species;
+            animal.Gender = Gender;
+            animal.Born = Born;
+            animal.Description = Description;
+
+            context.SaveChanges();
+        }
+        else
+        {
+            throw new Exception("Animal not found.");
+        }
+    }
+
+    public void Adopt(ShelterContext context)
+    {
+        var animal = context.Animals.FirstOrDefault(a => a.Id == Id);
+
+        if (animal != null)
+        {
+            animal.Adopted = true;
+            context.SaveChanges();
+        }
+        else
+        {
+            throw new Exception("Animal not found.");
+        }
+    }
 }
 
 public enum Gender

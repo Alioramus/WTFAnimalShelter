@@ -2,7 +2,8 @@
 
 namespace AnimalShelter;
 
-public class Auth
+// TODO: use DI
+public class AuthService
 {
     public bool Login(string username, string password)
     {

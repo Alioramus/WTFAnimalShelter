@@ -4,13 +4,14 @@ namespace AnimalShelter;
 
 public partial class RegisterWindow
 {
-    private Auth _auth;
+    private readonly AuthService _authService;
+
     public RegisterWindow()
     {
         InitializeComponent();
-        _auth = new Auth();
+        _authService = new AuthService();
     }
-    
+
     private void RegisterButton_Click(object sender, RoutedEventArgs e)
     {
         var username = UsernameText.Text;
@@ -26,10 +27,11 @@ public partial class RegisterWindow
         };
 
         // Zarejestruj użytkownika
-        var success = _auth.Register(username, password, selectedRole);
+        var success = _authService.Register(username, password, selectedRole);
         if (success)
         {
-            MessageBox.Show("Rejestracja powiodła się!", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Rejestracja powiodła się!", "Informacja", MessageBoxButton.OK,
+                MessageBoxImage.Information);
             new MainWindow().Show();
             Close();
         }

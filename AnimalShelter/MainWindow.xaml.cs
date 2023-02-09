@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace AnimalShelter;
 
@@ -21,7 +23,7 @@ public partial class MainWindow
         Visits = context.Visits.ToList();
         DataContext = this;
     }
-    
+
     // TODO: otwieranie odpowiedniego okna na podstawie zalogowanej roli - App możę wtedy mieć entrypoint tutaj
     // public MainWindow(UserRole Role)
     // {
@@ -42,7 +44,7 @@ public partial class MainWindow
             return;
         }
 
-        var animalsWindow = new AnimalsWindow(Animals[0]);
+        var animalsWindow = new AnimalInfoWindow(Animals[0]);
         animalsWindow.Show();
         // ContentFrame.Navigate(animalsWindow);
     }
@@ -58,8 +60,8 @@ public partial class MainWindow
         var keeperWindow = new KeeperWindow(Keepers[0]);
         keeperWindow.Show();
         // ContentFrame.Navigate(keeperWindow);
-    }    
-    
+    }
+
     private void ShowVisitsView(object sender, RoutedEventArgs e)
     {
         if (Visits.Count == 0)
@@ -71,5 +73,30 @@ public partial class MainWindow
         var visitWindow = new VisitWindow(Visits[0]);
         visitWindow.Show();
         // ContentFrame.Navigate(keeperWindow);
+    }
+
+    private void ShowAddAnimal(object sender, RoutedEventArgs e)
+    {
+        var addAnimalWindow = new AddAnimalWindow();
+        addAnimalWindow.Show();
+    }
+
+    public void OnAddAnimalEvent()
+    {
+        // Tutaj można uaktualnić widok klasy MainWindow po dodaniu zwierzęcia
+        // nie wiem czy da sie to zrobic lepiej :/
+        using var context = new ShelterContext();
+        Animals = context.Animals.ToList();
+        AnimalList.SetValue(ItemsControl.ItemsSourceProperty, Animals);
+    }
+
+    private void RemoveAnimal(object sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void ShowEditAnimal(object sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -1,12 +1,13 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace AnimalShelter;
 
-public partial class AnimalsWindow
+public partial class AnimalInfoWindow
 {
     private readonly Animal _animal;
 
-    public AnimalsWindow(Animal animal)
+    public AnimalInfoWindow(Animal animal)
     {
         InitializeComponent();
         _animal = animal;
@@ -15,11 +16,29 @@ public partial class AnimalsWindow
 
     private void UpdateAnimalInfo(object sender, RoutedEventArgs e)
     {
-        // code to update animal information
+        using var context = new ShelterContext();
+        try
+        {
+            _animal.Update(context);
+            MessageBox.Show("Animal information updated successfully.");
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }
     }
 
     private void AdoptAnimal(object sender, RoutedEventArgs e)
     {
-        // code to set animal as adopted
+        using var context = new ShelterContext();
+        try
+        {
+            _animal.Adopt(context);
+            MessageBox.Show("Animal adopted successfully.");
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }
     }
 }
