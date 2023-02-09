@@ -19,10 +19,9 @@ public partial class MainWindow
         InitializeComponent();
         _context = App.AppContainer.Resolve<ShelterContext>();
         _context.Database.EnsureCreated();
-        Animals = _context.Animals.ToList();
         Keepers = _context.Keepers.ToList();
         Visits = _context.Visits.ToList();
-        DataContext = this;
+        DataContext = new NavigationViewModel(_context);
     }
 
     // TODO: otwieranie odpowiedniego okna na podstawie zalogowanej roli - App możę wtedy mieć entrypoint tutaj
@@ -76,27 +75,4 @@ public partial class MainWindow
         // ContentFrame.Navigate(keeperWindow);
     }
 
-    private void ShowAddAnimal(object sender, RoutedEventArgs e)
-    {
-        var addAnimalWindow = new AddAnimalWindow();
-        addAnimalWindow.Show();
-    }
-
-    public void OnAddAnimalEvent()
-    {
-        // Tutaj można uaktualnić widok klasy MainWindow po dodaniu zwierzęcia
-        // nie wiem czy da sie to zrobic lepiej :/
-        Animals = _context.Animals.ToList();
-        AnimalList.SetValue(ItemsControl.ItemsSourceProperty, Animals);
-    }
-
-    private void RemoveAnimal(object sender, RoutedEventArgs e)
-    {
-        throw new NotImplementedException();
-    }
-
-    private void ShowEditAnimal(object sender, RoutedEventArgs e)
-    {
-        throw new NotImplementedException();
-    }
 }

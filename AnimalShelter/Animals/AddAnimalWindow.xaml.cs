@@ -35,7 +35,8 @@ public partial class AddAnimalWindow
         MessageBox.Show("Animal added successfully.");
         Close();
         var mainWindow = Application.Current.MainWindow as MainWindow;
-        mainWindow!.OnAddAnimalEvent();
+        var navigationVM = mainWindow.DataContext as NavigationViewModel;
+        navigationVM.AnimalsListCommand.Execute(null);
     }
 
     private void Cancel(object sender, RoutedEventArgs e)
