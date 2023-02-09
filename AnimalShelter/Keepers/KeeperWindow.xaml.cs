@@ -15,7 +15,7 @@ public partial class KeeperWindow
 
     private void SaveKeeper(object sender, RoutedEventArgs e)
     {
-        // code to save keeper information
+        //
         Close();
     }
 

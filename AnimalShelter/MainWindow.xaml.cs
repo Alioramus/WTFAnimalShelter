@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,19 +23,30 @@ public partial class MainWindow
         Keepers = _context.Keepers.ToList();
         Visits = _context.Visits.ToList();
         DataContext = new NavigationViewModel(_context);
+
+        /*
+        Keeper someKeeper = new Keeper();
+        someKeeper.FirstName = "Jan";
+        someKeeper.LastName = "Kowalski";
+        someKeeper.KeeperId = 30;
+        Window keeperTestWindow = new KeeperWindow(someKeeper);
+        keeperTestWindow.Show();
+        */
     }
 
-    // TODO: otwieranie odpowiedniego okna na podstawie zalogowanej roli - App możę wtedy mieć entrypoint tutaj
-    // public MainWindow(UserRole Role)
-    // {
-    //     Content = Role switch
-    //     {
-    //         UserRole.Administrator => new AdminWindow(),
-    //         UserRole.Keeper => new KeeperWindow(),
-    //         UserRole.Veterinarian => new VetWindow(),
-    //         _ => new LoginWindow()
-    //     };
-    // }
+    //TODO: otwieranie odpowiedniego okna na podstawie zalogowanej roli - App możę wtedy mieć entrypoint tutaj
+    /*
+    public MainWindow(UserRole Role)
+    {
+        Content = Role switch
+        {
+            UserRole.Administrator => new AdminWindow(),
+            UserRole.Keeper => new KeeperWindow(keeper),
+            UserRole.Veterinarian => new VetWindow(),
+            _ => new LoginWindow()
+        };
+    }
+    */
 
     private void ShowAnimalsView(object sender, RoutedEventArgs e)
     {
