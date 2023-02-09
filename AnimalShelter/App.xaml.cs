@@ -45,11 +45,11 @@ public partial class App
 
     private void ConfigureDatabase()
     {
-        Logger.Info("DB init");
+        Logger.Info("Database init");
         var facade = new DatabaseFacade(AppContainer.Resolve<ShelterContext>());
         // facade.EnsureDeleted();
         facade.EnsureCreated();
-        Logger.Info("DB init done");
+        Logger.Info("Database init done");
     }
 
     private void ConfigureDependencyInjection()
@@ -58,6 +58,8 @@ public partial class App
         var builder = new ContainerBuilder();
         builder.RegisterType<ShelterContext>().AsSelf().SingleInstance();
         builder.RegisterType<AuthService>().As<IAuthService>().SingleInstance();
+        builder.RegisterType<PasswordService>().As<IPasswordService>().SingleInstance();
+        builder.RegisterType<UsernameService>().As<IUsernameService>().SingleInstance();
         AppContainer = builder.Build();
         Logger.Info("Dependency injection init done");
     }
