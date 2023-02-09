@@ -18,11 +18,22 @@ namespace AnimalShelter.Animals
     /// <summary>
     /// Logika interakcji dla klasy UserControl1.xaml
     /// </summary>
-    public partial class AnimalListView : UserControl
+    public partial class AnimalsView : UserControl
     {
-        public AnimalListView()
+        public AnimalsView()
         {
             InitializeComponent();
+            this.contentControl.Content = new AnimalListView();
+        }
+
+        private void ShowAddAnimal(object sender, RoutedEventArgs e)
+        {
+           this.contentControl.Content = new AddAnimalView();
+        }
+
+        private void ShowListAnimals(object sender, RoutedEventArgs e)
+        {
+            this.contentControl.Content = new AnimalListView();
         }
     }
 }

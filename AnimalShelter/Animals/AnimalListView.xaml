@@ -20,11 +20,6 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <StackPanel DockPanel.Dock="Bottom" Height="50" Orientation="Horizontal">
-                <Button Click="ShowAddAnimal" Content="Add Animal"  Margin="10" />
-                <Button Click="RemoveAnimal" Content="Remove Animal"  Margin="10" />
-                <Button Click="ShowEditAnimal" Content="Edit Animal"   Margin="10" />
-            </StackPanel>
         </DockPanel>
     </Grid>
 </UserControl>

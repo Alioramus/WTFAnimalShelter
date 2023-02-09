@@ -74,7 +74,7 @@ namespace AnimalShelter
 
         {
 
-            SelectedViewModel = new AnimalsListModel(context);
+            SelectedViewModel = new AnimalsModel(context);
 
         }
 
