@@ -4,7 +4,7 @@ using Moq;
 
 namespace AnimalShelterE2E.Auth;
 
-public class LoginWindowE2ETests: E2EFixture
+public class LoginWindowE2ETests: E2ETests
 {
     [UIFact]
     public void Login_WithValidCredentials_ShouldOpenMainWindow()

@@ -3,9 +3,9 @@ using AnimalShelter;
 
 namespace AnimalShelterE2E;
 
-public class E2EFixture: IDisposable
+public class E2ETests: IDisposable
 {
-    protected E2EFixture()
+    protected E2ETests()
     {
         new App();
         var builder = new ContainerBuilder();

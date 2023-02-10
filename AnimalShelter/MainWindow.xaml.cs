@@ -14,6 +14,8 @@ public partial class MainWindow
     public List<Animal> Animals { get; set; }
     public List<Keeper> Keepers { get; set; }
     public List<Visit> Visits { get; set; }
+    public List<Vet> Vets { get; set; }
+    public List<VeterinaryRequest> VeterinaryRequests { get; set; }
 
     public MainWindow()
     {
@@ -21,6 +23,9 @@ public partial class MainWindow
         _context = App.AppContainer.Resolve<ShelterContext>();
         Keepers = _context.Keepers.ToList();
         Visits = _context.Visits.ToList();
+        Vets = _context.Vets.ToList();
+        VeterinaryRequests = _context.VeterinaryRequests.ToList();
+        
         DataContext = new NavigationViewModel(_context);
 
         /*

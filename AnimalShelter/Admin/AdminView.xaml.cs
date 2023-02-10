@@ -1,8 +1,8 @@
 ﻿namespace AnimalShelter;
 
-public partial class AdminWindow
+public partial class AdminView
 {
-    public AdminWindow()
+    public AdminView()
     {
         InitializeComponent();
     }
