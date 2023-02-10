@@ -17,7 +17,7 @@ namespace AnimalShelter.Actions
         {
             get
             {
-                return actions;
+                return actions.FindAll(x => x.Assignee.Id == App.CurrentUser.Id);
             }
             private set
             {
