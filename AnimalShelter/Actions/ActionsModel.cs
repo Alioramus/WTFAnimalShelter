@@ -11,15 +11,27 @@ namespace AnimalShelter.Actions
 {
     public class ActionsModel : INotifyPropertyChanged
     {
-        private List<ActionRequest> ActionsRequests { get; set; }
         private List<User> Users { get; set; }
+        private List<ActionRequest> actionsRequest { get; set; }
+        public List<ActionRequest> ActionsRequests
+        {
+            get
+            {
+                return actionsRequest;
+            }
+            private set
+            {
+                actionsRequest = value;
+                OnPropertyChanged("ActionsRequests");
+            }
+        }
         private ShelterContext context { get; set; }
         public ActionsModel(ShelterContext context)
         {
             ActionsRequests = context.ActionRequests.ToList();
             Users = context.Users.ToList();
             this.context = context;
-            Debug.WriteLine("HEJ HEJ: " + ActionsRequests.Count);
+            // Debug.WriteLine("HEJ HEJ: " + ActionsRequests.Count);
             // request = new ActionRequest();
             // DeleteAnimal = new BaseCommand(deleteAnimal);
             // MakeRequest = new BaseCommand(makeRequest);
