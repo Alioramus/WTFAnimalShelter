@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using AnimalShelter.Animals;
+using AnimalShelter.Actions;
 
 namespace AnimalShelter
 {
@@ -36,6 +37,7 @@ namespace AnimalShelter
         public ICommand EmpCommand { get; set; }
 
         public ICommand AnimalsListCommand { get; set; }
+        public ICommand ActionsListCommand { get; set; }
 
         private object selectedViewModel;
         private ShelterContext context;
@@ -59,7 +61,7 @@ namespace AnimalShelter
             EmpCommand = new BaseCommand(OpenEmp);
 
             AnimalsListCommand = new BaseCommand(OpenAnimalsList);
-
+            ActionsListCommand = new BaseCommand(OpenActionsList);
         }
 
         private void OpenEmp(object obj)
@@ -75,6 +77,14 @@ namespace AnimalShelter
         {
 
             SelectedViewModel = new AnimalsModel(context);
+
+        }
+
+        private void OpenActionsList(object obj)
+
+        {
+
+            SelectedViewModel = new ActionsModel(context);
 
         }
 

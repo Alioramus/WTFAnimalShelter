@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimalShelter.Animals"
+        xmlns:actions="clr-namespace:AnimalShelter.Actions"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
@@ -13,12 +14,21 @@
             <local:AnimalsView/>
 
         </DataTemplate>
+        
 
         <DataTemplate DataType="{x:Type local:AnimalDetailsModel}">
 
             <local:AnimalDetailsView/>
 
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type actions:ActionsModel}">
+
+            <actions:ActionsView/>
+
+        </DataTemplate>
+
+
 
     </Window.Resources>
     <Grid>
@@ -30,6 +40,8 @@
                 <Button Content="Animals" Command="{Binding AnimalsListCommand}"></Button>
 
                 <Button Content="Visits" Command="{Binding EmpCommand}"></Button>
+
+                <Button Content="Actions" Command="{Binding ActionsListCommand}"></Button>
 
             </StackPanel>
             <ContentControl x:Name="Pages" DockPanel.Dock="Right" Content="{Binding SelectedViewModel}"/>
