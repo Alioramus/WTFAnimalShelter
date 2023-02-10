@@ -9,13 +9,15 @@
 
     <Grid>
         <DockPanel>
-            <ListView Name="ActionList" ItemsSource="{Binding ActionsRequests}" SelectedItem="{Binding SelectedAction}" SelectionMode="Single" DockPanel.Dock="Top">
+            <ListView Name="ActionList" ItemsSource="{Binding Actions}" SelectedItem="{Binding SelectedAction}" SelectionMode="Single" DockPanel.Dock="Top">
                 <ListView.View>
                     <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Action Information">
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="Name" Width="100"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Type}" Header="Action Type" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Type}" Header="Type" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Status}" Header="Status" Width="100"/>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Description}" Header="Description" Width="100"/>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Assignee.Username}" Header="User" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Animal.Name}" Header="Animal" Width="100"/>
                     </GridView>
                 </ListView.View>
             </ListView>

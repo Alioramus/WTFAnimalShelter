@@ -12,23 +12,23 @@ namespace AnimalShelter.Actions
     public class ActionsModel : INotifyPropertyChanged
     {
         private List<User> Users { get; set; }
-        private List<ActionRequest> actionsRequest { get; set; }
-        public List<ActionRequest> ActionsRequests
+        private List<ShelterAction> actions { get; set; }
+        public List<ShelterAction> Actions
         {
             get
             {
-                return actionsRequest;
+                return actions;
             }
             private set
             {
-                actionsRequest = value;
+                actions = value;
                 OnPropertyChanged("ActionsRequests");
             }
         }
         private ShelterContext context { get; set; }
         public ActionsModel(ShelterContext context)
         {
-            ActionsRequests = context.ActionRequests.ToList();
+            Actions = context.Actions.ToList();
             Users = context.Users.ToList();
             this.context = context;
             // Debug.WriteLine("HEJ HEJ: " + ActionsRequests.Count);

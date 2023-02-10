@@ -23,7 +23,7 @@ public class ShelterContext : DbContext
 
     public DbSet<User> Users { get; set; }
     public DbSet<Animal> Animals { get; set; }
-    public DbSet<ActionRequest> ActionRequests { get; set; }
+    // public DbSet<ActionRequest> ActionRequests { get; set; }
     public DbSet<Keeper> Keepers { get; set; }
     public DbSet<Visit> Visits { get; set; }
     public DbSet<Vet> Vets { get; set; }

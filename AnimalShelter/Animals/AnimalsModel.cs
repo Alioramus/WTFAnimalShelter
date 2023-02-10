@@ -85,7 +85,7 @@ namespace AnimalShelter.Animals
         private void makeRequest(object request)
         {
             var shelterReq = request as ActionRequest;
-            context.ActionRequests.Add(shelterReq);
+            // context.ActionRequests.Add(shelterReq);
             context.Actions.Add(new ShelterAction
             {
                 Name = shelterReq.Name,
