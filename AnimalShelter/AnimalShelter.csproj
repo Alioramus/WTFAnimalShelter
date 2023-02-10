@@ -47,6 +47,9 @@
       <Compile Update="Auth\LoginWindow.xaml.cs">
         <SubType>Code</SubType>
       </Compile>
+      <Compile Update="Vets\VeterinaryPanelView.xaml.cs">
+        <DependentUpon>VeterinaryPanelView.xaml</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>

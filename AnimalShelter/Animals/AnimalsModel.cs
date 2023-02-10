@@ -33,6 +33,7 @@ namespace AnimalShelter.Animals
                 OnPropertyChanged("SelectedAnimal");
             }
         }
+        
         private ActionRequest request;
         public ActionRequest Request
         {

@@ -6,25 +6,18 @@
         mc:Ignorable="d"
         Height="450" Width="800">
     <UserControl.Resources>
-        <!-- <ObjectDataProvider x:Key="Gender" -->
-        <!--                     ObjectType="{x:Type common:Gender}" -->
-        <!--                     MethodName="GetValues"> -->
-        <!--     <ObjectDataProvider.MethodParameters> -->
-        <!--         <x:Type TypeName="common:Gender" /> -->
-        <!--     </ObjectDataProvider.MethodParameters> -->
-        <!-- </ObjectDataProvider> -->
     </UserControl.Resources>
     <Grid>
         <DockPanel>
-            <ListView Name="AnimalList" ItemsSource="{Binding Animals}" SelectedItem="{Binding SelectedAnimal}" SelectionMode="Single" DockPanel.Dock="Top">
+            <ListView ItemsSource="{Binding VeterinaryActionsToTake}" SelectedItem="{Binding SelectedRequestToTake}" SelectionMode="Single" DockPanel.Dock="Top">
                 <ListView.View>
-                    <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Animal Information">
+                    <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Unassigned veterinary requests">
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Id}" Header="Id" Width="100"/>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="Name" Width="100"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Age}" Header="Age" Width="100"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Species}" Header="Species" Width="100"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Gender}" Header="Gender" Width="100"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Details}" Header="Details" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Type}" Header="Type" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Status}" Header="Status" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Description}" Header="Description" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Animal}" Header="Animal" Width="100"/>
                     </GridView>
                 </ListView.View>
             </ListView>

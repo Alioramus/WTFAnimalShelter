@@ -51,7 +51,7 @@ public partial class App
     {
         Logger.Info("Database init");
         var facade = new DatabaseFacade(AppContainer.Resolve<ShelterContext>());
-        // facade.EnsureDeleted();
+        //  facade.EnsureDeleted();
         facade.EnsureCreated();
         Logger.Info("Database init done");
     }

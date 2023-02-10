@@ -23,19 +23,6 @@
                     </Button.Style>
                     Show details
                 </Button>
-                <Button Command="{Binding DeleteAnimal}" CommandParameter="{Binding SelectedAnimal}" Margin="10 0 10 10">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Visibility" Value="Visible"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding SelectedAnimal}" Value="{x:Null}">
-                                    <Setter Property="Visibility" Value="Hidden"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    Delete animal
-                </Button>
             </StackPanel>
             <ContentControl x:Name="contentControl"></ContentControl>
         </StackPanel>

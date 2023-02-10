@@ -4,8 +4,28 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Height="40">
+                <Button Click="ShowOpenRequests" Margin="10 0 10 10">Show open veterinary requests</Button>
+                <Button Click="ShowVeterinaryRequests" Margin="10 0 10 10">Show assigned requests</Button>
+                <Button Click="EditVetDetails" Margin="10 0 10 10">Edit veterinary details</Button>
+                <!-- <Button Click="EditVetDetails" Margin="10 0 10 10"> -->
+                <!--         <Style TargetType="{x:Type Button}"> -->
+                <!--     <Button.Style> -->
+                <!--             <Setter Property="Visibility" Value="Visible"/> -->
+                <!--             <Style.Triggers> -->
+                <!--                 <DataTrigger Binding="{Binding SelectedAnimal}" Value="{x:Null}"> -->
+                <!--                     <Setter Property="Visibility" Value="Hidden"/> -->
+                <!--                 </DataTrigger> -->
+                <!--             </Style.Triggers> -->
+                <!--         </Style> -->
+                <!--     </Button.Style> -->
+                <!--     Edit veterinary details -->
+                <!-- </Button> -->
+            </StackPanel>
+            <ContentControl x:Name="ContentControl" />
+        </StackPanel>
     </Grid>
 </UserControl>

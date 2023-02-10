@@ -8,8 +8,9 @@ public class Keeper
 {
     [Key]
     public int KeeperId { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
+    public string? FirstName { get; set; }
+    public string? LastName { get; set; }
+    public User User { get; set; }
 
     public override string ToString() => $"{FirstName} {LastName}";
 

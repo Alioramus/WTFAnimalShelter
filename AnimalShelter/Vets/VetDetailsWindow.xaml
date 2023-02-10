@@ -1,0 +1,21 @@
+<Window x:Class="AnimalShelter.VetDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:AnimalShelter"
+        mc:Ignorable="d"
+        Title="VetDetailsWindow" Height="350" Width="200">
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBlock Text="First Name" Margin="0,10,0,5" />
+            <TextBox x:Name="FirstNameText"  />        
+            <TextBlock Text="Last Name" Margin="0,10,0,5" />
+            <TextBox x:Name="LastNameText"  />
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                <Button IsDefault="True" Click="Save_Click" Content="Save" />
+                <Button Content="Cancel" Click="Cancel_Click" Margin="10 0 0 0"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using NLog;
 
 namespace AnimalShelter;
@@ -25,7 +26,23 @@ public class AuthService : IAuthService
         if (!userLogged) return userLogged;
 
         Logger.Info($"User logged: {username}");
-        App.CurrentUser = _context.Users.First(user => user.Username == username);
+        var currentUser = App.CurrentUser = _context.Users.First(user => user.Username == username);
+        switch (currentUser.Role)
+        {
+            case UserRole.Veterinarian:
+                App.CurrentVet = _context.Vets.First(vet => vet.User == currentUser);
+                break;
+            case UserRole.Keeper:
+                App.CurrentKeeper = _context.Keepers.First(keeper => keeper.User == currentUser);
+
+                break;
+            case UserRole.Administrator:
+                App.CurrentAdmin = _context.Admins.First(admin => admin.User == currentUser);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(currentUser.Role), currentUser.Role, null);
+        }
+        
         return userLogged;
     }
 
@@ -42,6 +59,36 @@ public class AuthService : IAuthService
             Password = password,
             Role = role
         };
+
+        switch (role)
+        {
+            case UserRole.Veterinarian:
+                var vet = new Vet
+                {
+                    User = user
+                };
+                _context.Vets.Add(vet);
+                App.CurrentVet = vet;
+                break;
+            case UserRole.Keeper:
+                var keeper = new Keeper
+                {
+                    User = user
+                };
+                _context.Keepers.Add(keeper);
+                App.CurrentKeeper = keeper;
+                break;
+            case UserRole.Administrator:
+                var admin = new Admin
+                {
+                    User = user
+                };
+                _context.Admins.Add(admin);
+                App.CurrentAdmin = admin;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(role), role, null);
+        }
 
         _context.Users.Add(user);
         _context.SaveChanges();
