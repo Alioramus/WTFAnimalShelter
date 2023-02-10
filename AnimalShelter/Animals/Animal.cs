@@ -13,7 +13,7 @@ public class Animal
     public Species Species { get; set; }
     public Gender Gender { get; set; }
     public Size Size { get; set; }
-    public int Age;
+    public int Age { get; set; }
     public string Description { get; set; }
     public bool Adopted { get; set; }
 
