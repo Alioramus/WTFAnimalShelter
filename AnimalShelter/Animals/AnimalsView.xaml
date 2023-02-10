@@ -8,10 +8,10 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Click="ShowListAnimals">List animals</Button>
-                <Button Click="ShowAddAnimal">Add animal</Button>
-                <Button Click="ShowAnimalDetails">
+            <StackPanel Orientation="Horizontal" Height="40">
+                <Button Click="ShowListAnimals" Margin="10 0 10 10">List animals</Button>
+                <Button Click="ShowAddAnimal" Margin="10 0 10 10">Add animal</Button>
+                <Button Click="ShowAnimalDetails" Margin="10 0 10 10">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Visibility" Value="Visible"/>
@@ -24,7 +24,7 @@
                     </Button.Style>
                     Show details
                 </Button>
-                <Button Command="{Binding DeleteAnimal}" CommandParameter="{Binding SelectedAnimal}">
+                <Button Command="{Binding DeleteAnimal}" CommandParameter="{Binding SelectedAnimal}" Margin="10 0 10 10">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Visibility" Value="Visible"/>

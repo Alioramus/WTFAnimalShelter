@@ -54,7 +54,7 @@
 
         <StackPanel Grid.Row="1">
             <TextBlock Text="Age" FontWeight="Bold" />
-            <TextBox Name="AnimalAge" />
+            <TextBox Name="AnimalAge" PreviewTextInput="NumberValidationTextBox"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2">
