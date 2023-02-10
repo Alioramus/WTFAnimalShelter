@@ -53,7 +53,7 @@
 
         <StackPanel Grid.Row="1">
             <TextBlock Text="Age" FontWeight="Bold" />
-            <TextBox Name="AnimalAge" PreviewTextInput="NumberValidationTextBox"/>
+            <TextBox Name="AnimalAge" Text="0" PreviewTextInput="NumberValidationTextBox"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2">

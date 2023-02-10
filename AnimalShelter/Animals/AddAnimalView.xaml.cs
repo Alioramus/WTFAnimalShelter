@@ -13,7 +13,6 @@ public partial class AddAnimalView
     public AddAnimalView()
     {
         InitializeComponent();
-        // AnimalBorn.SelectedDate = DateTime.Now;
     }
     private void AddAnimal(object sender, RoutedEventArgs e)
     {
