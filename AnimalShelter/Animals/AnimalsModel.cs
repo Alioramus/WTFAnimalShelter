@@ -103,9 +103,9 @@ namespace AnimalShelter.Animals
                 Name = shelterReq.Name,
                 Description = shelterReq.Description,
                 Type = shelterReq.Type,
-                AssigneeId = shelterReq.AssigneeId,
+                Assignee = shelterReq.Assignee,
                 Status = ShelterActionStatus.Requested,
-                AnimalId = SelectedAnimal.Id
+                Animal = SelectedAnimal
             });
             context.SaveChanges();
             Request = new ActionRequest();
@@ -125,7 +125,7 @@ namespace AnimalShelter.Animals
 
         private List<ShelterAction> getSelectedAnimalActions()
         {
-            return context.Actions.Where(x => x.AnimalId == selectedAnimal.Id).ToList();
+            return context.Actions.Where(x => x.Animal == selectedAnimal).ToList();
         }
     }
 }

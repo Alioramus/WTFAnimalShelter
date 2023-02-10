@@ -11,10 +11,8 @@ namespace AnimalShelter
         public ShelterActionType Type { get; set; }
         public ShelterActionStatus Status { get; set; }
         public string Description { get; set; }
-        [ForeignKey("User")]
-        public int AssigneeId { get; set; }
-        [ForeignKey("Animal")]
-        public int AnimalId { get; set; }
+        public User Assignee { get; set; }
+        public Animal Animal { get; set; }
         
     }
 }

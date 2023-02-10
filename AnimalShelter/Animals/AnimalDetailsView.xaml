@@ -84,9 +84,8 @@
         </StackPanel>
         <StackPanel>
             <TextBlock>Assignee:</TextBlock>
-            <ComboBox SelectedValue="{Binding Request.AssigneeId}"
-                      ItemsSource="{Binding Source={StaticResource ShelterActionType}}"
-                      SelectedItem="{x:Static common:ShelterActionType.WALK}" />
+            <ComboBox SelectedValue="{Binding Request.Assignee}"
+                      ItemsSource="{Binding Users}" DisplayMemberPath="Username"/>
         </StackPanel>
         <Button Command="{Binding MakeRequest}" CommandParameter="{Binding Request}">Request</Button>
 
@@ -98,7 +97,7 @@
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="Name" Width="100"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Type}" Header="Type" Width="100"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Status}" Header="Status" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Assignee}" Header="Assignee" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Assignee.Username}" Header="Assignee" Width="100"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Description}" Header="Description" Width="100"/>
                 </GridView>
             </ListView.View>
