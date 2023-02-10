@@ -6,15 +6,6 @@
              xmlns:local="clr-namespace:AnimalShelter.Actions"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        <ObjectDataProvider x:Key="ActionsRequests"
-                            ObjectType="{x:Type common:ActionsRequests}"
-                            MethodName="GetValues">
-            <ObjectDataProvider.MethodParameters>
-                <x:Type TypeName="common:ActionsRequests" />
-            </ObjectDataProvider.MethodParameters>
-        </ObjectDataProvider>
-    </UserControl.Resources>
 
     <Grid>
         <DockPanel>
