@@ -67,7 +67,7 @@
             <TextBlock>Action type:</TextBlock>
             <ComboBox SelectedValue="{Binding Request.Type}" 
                       ItemsSource="{Binding Source={StaticResource ShelterActionType}}"
-                      SelectedItem="{x:Static common:ShelterActionType.WALK}" />
+                      SelectedItem="{x:Static common:ShelterActionType.Walk}" />
         </StackPanel>
         <StackPanel>
             <TextBlock>Description:</TextBlock>

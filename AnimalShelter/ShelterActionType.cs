@@ -2,10 +2,10 @@
 
 public enum ShelterActionType
 {
-    FOOD_REQUEST,
-    VET_VISIT,
-    BRUSHING,
-    WASHING,
-    WALK,
-    FEEDING,
+    FoodRequest,
+    VetVisit,
+    Brush,
+    Wash,
+    Walk,
+    Feed,
 }

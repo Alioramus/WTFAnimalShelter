@@ -14,7 +14,7 @@ public class VeterinaryRequestModel
     {
         Animals = context.Animals.ToList();
         Actions = context.Actions.ToList();
-        VeterinaryActionsToTake = context.Actions.Where(element => element.Type == ShelterActionType.VET_VISIT && element.Status == ShelterActionStatus.Requested).ToList();
+        VeterinaryActionsToTake = context.Actions.Where(element => element.Type == ShelterActionType.VetVisit && element.Status == ShelterActionStatus.Requested).ToList();
         _user = App.CurrentUser;
         Requests = context.VeterinaryRequests.Where(element => element.Vet.User == _user).ToList();
     }
