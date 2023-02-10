@@ -12,10 +12,9 @@
                     <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Animal Information">
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Id}" Header="Id" Width="100"/>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="Name" Width="100"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Breed}" Header="Breed" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Age}" Header="Age" Width="100"/>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Species}" Header="Species" Width="100"/>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Gender}" Header="Gender" Width="100"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Born}" Header="Born" Width="100"/>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Details}" Header="Details" Width="100"/>
                     </GridView>
                 </ListView.View>

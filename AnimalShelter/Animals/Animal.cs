@@ -10,10 +10,10 @@ public class Animal
     [Key]
     public int Id { get; set; }
     public string Name { get; set; }
-    public string Breed { get; set; }
-    public string Species { get; set; }
+    public Species Species { get; set; }
     public Gender Gender { get; set; }
-    public DateTime Born { get; set; }
+    public Size Size { get; set; }
+    public int Age;
     public string Description { get; set; }
     public bool Adopted { get; set; }
 
@@ -24,10 +24,10 @@ public class Animal
         if (animal != null)
         {
             animal.Name = Name;
-            animal.Breed = Breed;
             animal.Species = Species;
             animal.Gender = Gender;
-            animal.Born = Born;
+            animal.Age = Age;
+            animal.Size = Size;
             animal.Description = Description;
 
             context.SaveChanges();
@@ -53,7 +53,18 @@ public class Animal
         }
     }
 }
-
+public enum Species
+{
+    Dog,
+    Cat,
+    Bird
+}
+public enum Size
+{
+    Big,
+    Small,
+    Medium
+}
 public enum Gender
 {
     Male,

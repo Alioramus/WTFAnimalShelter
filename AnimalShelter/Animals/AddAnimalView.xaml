@@ -15,6 +15,23 @@
                 <x:Type TypeName="common:Gender" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
+        
+        <ObjectDataProvider x:Key="Species"
+                            ObjectType="{x:Type common:Species}"
+                            MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="common:Species" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="Size"
+                            ObjectType="{x:Type common:Size}"
+                            MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="common:Size" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -36,25 +53,29 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1">
-            <TextBlock Text="Breed: " FontWeight="Bold" />
-            <TextBox Name="AnimalBreed" />
+            <TextBlock Text="Age" FontWeight="Bold" />
+            <TextBox Name="AnimalAge" />
         </StackPanel>
 
         <StackPanel Grid.Row="2">
             <TextBlock Text="Species: " FontWeight="Bold" />
-            <TextBox Name="AnimalSpecies" />
+            <ComboBox Name="AnimalSpecies" 
+                      ItemsSource="{Binding Source={StaticResource Species}}"
+                      SelectedItem="{x:Static common:Species.Dog}" />
         </StackPanel>
 
         <StackPanel Grid.Row="3">
             <TextBlock Text="Gender: " FontWeight="Bold" />
-            <ComboBox Name="AnimalGender" 
-                      ItemsSource="{Binding Source={StaticResource Gender}}"
-                      SelectedItem="{x:Static common:Gender.Male}" />
+            <ComboBox Name="AnimalSize" 
+                      ItemsSource="{Binding Source={StaticResource Size}}"
+                      SelectedItem="{x:Static common:Size.Small}" />
         </StackPanel>
 
         <StackPanel Grid.Row="4">
-            <TextBlock Text="Born: " FontWeight="Bold" />
-            <DatePicker Name="AnimalBorn" />
+            <TextBlock Text="Gender: " FontWeight="Bold" />
+            <ComboBox Name="AnimalGender" 
+                      ItemsSource="{Binding Source={StaticResource Gender}}"
+                      SelectedItem="{x:Static common:Gender.Male}" />
         </StackPanel>
 
         <StackPanel Grid.Row="5">

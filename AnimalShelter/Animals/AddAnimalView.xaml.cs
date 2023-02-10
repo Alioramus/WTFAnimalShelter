@@ -24,18 +24,18 @@ namespace AnimalShelter.Animals
         public AddAnimalView()
         {
             InitializeComponent();
-            AnimalBorn.SelectedDate = DateTime.Now;
+            // AnimalBorn.SelectedDate = DateTime.Now;
         }
         private void AddAnimal(object sender, RoutedEventArgs e)
         {
             var animal = new Animal
             {
                 Name = AnimalName.Text,
-                Breed = AnimalBreed.Text,
-                Species = AnimalSpecies.Text,
+                Age = Int32.Parse(AnimalAge.Text),
+                Species = (Species)AnimalSpecies.SelectedValue,
                 Gender = (Gender)AnimalGender.SelectedValue,
-                Born = Convert.ToDateTime(AnimalBorn.Text),
                 Description = AnimalDescription.Text,
+                Size = (Size)AnimalSize.SelectedValue,
                 Adopted = AnimalAdopted.IsChecked ?? false,
                 //Keeper = CurrentKeeper.Text,
                 //AdoptedBy = AdoptedBy.Text,

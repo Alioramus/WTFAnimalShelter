@@ -35,8 +35,8 @@
         </TextBlock>
 
         <TextBlock Grid.Row="1">
-            <TextBlock Text="Breed: " FontWeight="Bold" />
-            <TextBlock Text="{Binding SelectedAnimal.Breed}" />
+            <TextBlock Text="Age: " FontWeight="Bold" />
+            <TextBlock Text="{Binding SelectedAnimal.Age}" />
         </TextBlock>
 
         <TextBlock Grid.Row="2">
@@ -47,11 +47,6 @@
         <TextBlock Grid.Row="3">
             <TextBlock Text="Gender: " FontWeight="Bold" />
             <TextBlock Text="{Binding SelectedAnimal.Gender}" />
-        </TextBlock>
-
-        <TextBlock Grid.Row="4">
-            <TextBlock Text="Born: " FontWeight="Bold" />
-            <TextBlock Text="{Binding SelectedAnimal.Born}" />
         </TextBlock>
 
         <TextBlock Grid.Row="5">
