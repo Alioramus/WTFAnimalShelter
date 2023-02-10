@@ -9,7 +9,7 @@ public interface IAuthService
     public (bool, Result) TryRegister(string username, string password, UserRole role);
 }
 
-public class AuthService: IAuthService
+public class AuthService : IAuthService
 {
     private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
     private readonly ShelterContext _context;
@@ -18,12 +18,17 @@ public class AuthService: IAuthService
     {
         _context = context;
     }
-    
+
     public bool TryLogin(string username, string password)
     {
-        return _context.Users.Any(user => user.Username == username && user.Password == password);
+        var userLogged = _context.Users.Any(user => user.Username == username && user.Password == password);
+        if (!userLogged) return userLogged;
+
+        Logger.Info($"User logged: {username}");
+        App.CurrentUser = _context.Users.First(user => user.Username == username);
+        return userLogged;
     }
-    
+
     public (bool, Result) TryRegister(string username, string password, UserRole role)
     {
         if (_context.Users.Any(u => u.Username == username))
@@ -40,7 +45,7 @@ public class AuthService: IAuthService
 
         _context.Users.Add(user);
         _context.SaveChanges();
-
+        App.CurrentUser = user;
         return (true, Result.Correct);
     }
 }

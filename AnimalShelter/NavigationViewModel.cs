@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using AnimalShelter.Animals;
 using AnimalShelter.Actions;
@@ -30,26 +26,23 @@ namespace AnimalShelter
             _method.Invoke(parameter);
         }
     }
+    
     class NavigationViewModel : INotifyPropertyChanged
-
     {
 
         public ICommand EmpCommand { get; set; }
-
         public ICommand AnimalsListCommand { get; set; }
         public ICommand ActionsListCommand { get; set; }
+        public ICommand VeterinaryCommand { get; set; }
 
         private object selectedViewModel;
         private ShelterContext context;
 
         public object SelectedViewModel
-
         {
-
-            get { return selectedViewModel; }
+            get => selectedViewModel;
 
             set { selectedViewModel = value; OnPropertyChanged("SelectedViewModel"); }
-
         }
 
 
@@ -62,8 +55,9 @@ namespace AnimalShelter
 
             AnimalsListCommand = new BaseCommand(OpenAnimalsList);
             ActionsListCommand = new BaseCommand(OpenActionsList);
+            VeterinaryCommand = new BaseCommand(OpenVeterinary);
         }
-
+        
         private void OpenEmp(object obj)
 
         {
@@ -87,6 +81,12 @@ namespace AnimalShelter
             SelectedViewModel = new ActionsModel(context);
 
         }
+        
+        private void OpenVeterinary(object obj)
+        {
+            SelectedViewModel = new VeterinaryModel(context);
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using Autofac;
 
 namespace AnimalShelter;
@@ -25,17 +22,13 @@ public partial class MainWindow
         Visits = _context.Visits.ToList();
         Vets = _context.Vets.ToList();
         VeterinaryRequests = _context.VeterinaryRequests.ToList();
-        
-        DataContext = new NavigationViewModel(_context);
 
-        /*
-        Keeper someKeeper = new Keeper();
-        someKeeper.FirstName = "Jan";
-        someKeeper.LastName = "Kowalski";
-        someKeeper.KeeperId = 30;
-        Window keeperTestWindow = new KeeperWindow(someKeeper);
-        keeperTestWindow.Show();
-        */
+        DataContext = new NavigationViewModel(_context);
+        if (App.CurrentUser is { Role: UserRole.Veterinarian })
+        {
+            VeterinaryButton.Visibility = Visibility.Visible;
+            VeterinaryButton.IsEnabled = true;
+        }
     }
 
     //TODO: otwieranie odpowiedniego okna na podstawie zalogowanej roli - App możę wtedy mieć entrypoint tutaj
@@ -49,33 +42,5 @@ public partial class MainWindow
             UserRole.Veterinarian => new VetWindow(),
             _ => new LoginWindow()
         };
-    }
-    */
-
-    private void ShowKeeperView(object sender, RoutedEventArgs e)
-    {
-        if (Keepers.Count == 0)
-        {
-            MessageBox.Show("No keepers in the shelter");
-            return;
-        }
-
-        var keeperWindow = new KeeperWindow(Keepers[0]);
-        keeperWindow.Show();
-        // ContentFrame.Navigate(keeperWindow);
-    }
-
-    private void ShowVisitsView(object sender, RoutedEventArgs e)
-    {
-        if (Visits.Count == 0)
-        {
-            MessageBox.Show("No keepers in the shelter");
-            return;
-        }
-
-        var visitWindow = new VisitWindow(Visits[0]);
-        visitWindow.Show();
-        // ContentFrame.Navigate(keeperWindow);
-    }
-
+    }*/
 }
