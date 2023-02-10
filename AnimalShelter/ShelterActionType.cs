@@ -1,12 +1,11 @@
-﻿namespace AnimalShelter
+﻿namespace AnimalShelter;
+
+public enum ShelterActionType
 {
-    public enum ShelterActionType
-    {
-        FOOD_REQUEST,
-        VET_VISIT,
-        BRUSHING,
-        WASHING,
-        WALK,
-        FEEDING,
-    }
+    FOOD_REQUEST,
+    VET_VISIT,
+    BRUSHING,
+    WASHING,
+    WALK,
+    FEEDING,
 }

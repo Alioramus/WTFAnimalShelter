@@ -16,10 +16,15 @@
     </UserControl.Resources>
     <Grid>
         <DockPanel>
-            <ListView Name="VeterinaryRequestList" ItemsSource="{Binding VeterinaryRequests}" DockPanel.Dock="Top">
+            <ListView Name="AnimalList" ItemsSource="{Binding Animals}" SelectedItem="{Binding SelectedAnimal}" SelectionMode="Single" DockPanel.Dock="Top">
                 <ListView.View>
-                    <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Veterinary Request">
+                    <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Animal Information">
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Id}" Header="Id" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="Name" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Age}" Header="Age" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Species}" Header="Species" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Gender}" Header="Gender" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Details}" Header="Details" Width="100"/>
                     </GridView>
                 </ListView.View>
             </ListView>

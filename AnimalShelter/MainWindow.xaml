@@ -10,40 +10,33 @@
     <Window.Resources>
 
         <DataTemplate DataType="{x:Type local:AnimalsModel}">
-
-            <local:AnimalsView/>
-
+            <local:AnimalsView />
         </DataTemplate>
-        
+
 
         <DataTemplate DataType="{x:Type local:AnimalDetailsModel}">
-
-            <local:AnimalDetailsView/>
-
+            <local:AnimalDetailsView />
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type actions:ActionsModel}">
-
-            <actions:ActionsView/>
-
+            <actions:ActionsView />
         </DataTemplate>
-        
+
     </Window.Resources>
     <Grid>
-        
-   
         <DockPanel LastChildFill="True" Margin="15">
-            <StackPanel x:Name="navigation" DockPanel.Dock="Left" Width="100" Margin="0 0 20 20">
-
+            
+            <StackPanel Name="KeeperPanel" DockPanel.Dock="Left" Width="100" Margin="0 0 20 20">
                 <Button Content="Animals" Command="{Binding AnimalsListCommand}" Margin="5" />
-
                 <Button Content="Visits" Command="{Binding EmpCommand}" Margin="5" />
-
                 <Button Content="Actions" Command="{Binding ActionsListCommand}" Margin="5" />
-
-                <Button Name="VeterinaryButton" Content="Veterinary"  Visibility="Collapsed" IsEnabled="False" Command="{Binding VeterinaryCommand}" />
+            </StackPanel>      
+            
+            <StackPanel Name="VeterinaryPanel" Visibility="Collapsed" DockPanel.Dock="Left" Width="100" Margin="0 0 20 20">
+                <Button Name="VeterinaryButton" Content="Veterinary"  IsEnabled="False" Command="{Binding VeterinaryCommand}" Margin="5" />
             </StackPanel>
-            <ContentControl x:Name="Pages" DockPanel.Dock="Right" Content="{Binding SelectedViewModel}"/>
+            
+            <ContentControl DockPanel.Dock="Right" Content="{Binding SelectedViewModel}" />
         </DockPanel>
     </Grid>
 </Window>

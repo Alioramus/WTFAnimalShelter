@@ -16,6 +16,8 @@ public partial class App
     public static IContainer? AppContainer { get; set; }
     public static User? CurrentUser { get; set; }
     public static Vet? CurrentVet { get; set; }
+    public static Keeper? CurrentKeeper { get; set; }
+    public static Admin? CurrentAdmin { get; set; }
     private const int AttachParentProcess = -1;
 
     /// <summary>

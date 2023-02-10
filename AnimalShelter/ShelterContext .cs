@@ -22,13 +22,9 @@ public class ShelterContext : DbContext
     }
 
     public DbSet<User> Users { get; set; }
-<<<<<<< Updated upstream
     public DbSet<Animal> Animals { get; set; }
     public DbSet<ActionRequest> ActionRequests { get; set; }
-=======
-    public virtual DbSet<Animal> Animals { get; set; }
->>>>>>> Stashed changes
-    public virtual DbSet<Keeper> Keepers { get; set; }
+    public DbSet<Keeper> Keepers { get; set; }
     public DbSet<Visit> Visits { get; set; }
     public DbSet<Vet> Vets { get; set; }
     public DbSet<VeterinaryRequest> VeterinaryRequests { get; set; }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
@@ -12,10 +11,7 @@ namespace AnimalShelter.Animals
         private List<Animal> animals;
         public List<Animal> Animals
         {
-            get
-            {
-                return animals;
-            }
+            get => animals;
             private set
             {
                 animals = value;
@@ -26,10 +22,7 @@ namespace AnimalShelter.Animals
         private Animal? selectedAnimal;
         public Animal? SelectedAnimal
         {
-            get
-            {
-                return selectedAnimal;
-            }
+            get => selectedAnimal;
             set
             {
                 selectedAnimal= value;
@@ -43,10 +36,7 @@ namespace AnimalShelter.Animals
         private ActionRequest request;
         public ActionRequest Request
         {
-            get
-            {
-                return request;
-            }
+            get => request;
             set
             {
                 request= value;
@@ -56,10 +46,7 @@ namespace AnimalShelter.Animals
         private List<ShelterAction> selectedAnimalActions;
         public List<ShelterAction> SelectedAnimalActions
         {
-            get
-            {
-                return selectedAnimalActions;
-            }
+            get => selectedAnimalActions;
             set
             {
                 selectedAnimalActions= value;
@@ -82,14 +69,14 @@ namespace AnimalShelter.Animals
 
         public void AddAnimal(Animal animal)
         {
-            this.context.Animals.Add(animal);
+            context.Animals.Add(animal);
             context.SaveChanges();
             Animals = context.Animals.ToList();
         }
 
         private void deleteAnimal(object sender)
         {
-            this.context.Animals.Remove(SelectedAnimal);
+            context.Animals.Remove(SelectedAnimal);
             context.SaveChanges();
             Animals = context.Animals.ToList();
             SelectedAnimal= null;
@@ -117,11 +104,7 @@ namespace AnimalShelter.Animals
 
         private void OnPropertyChanged(string propName)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propName));
-
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
 
         private List<ShelterAction> getSelectedAnimalActions()

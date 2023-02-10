@@ -1,8 +1,8 @@
 namespace AnimalShelter;
 
-public partial class VetView
+public partial class VeterinaryView
 {
-    public VetView()
+    public VeterinaryView()
     {
         InitializeComponent();
     }

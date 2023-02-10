@@ -3,15 +3,14 @@ using System.Linq;
 
 namespace AnimalShelter;
 
-public class VeterinaryModel
+public class VeterinaryRequestModel
 {
     public List<Animal> Animals { get; set; }
     public List<ShelterAction> Actions { get; set; }
     public List<ShelterAction> VeterinaryActionsToTake { get; set; }
     public List<VeterinaryRequest> Requests { get; set; }
     private User _user;
-    
-    public VeterinaryModel(ShelterContext context)
+    public VeterinaryRequestModel(ShelterContext context)
     {
         Animals = context.Animals.ToList();
         Actions = context.Actions.ToList();

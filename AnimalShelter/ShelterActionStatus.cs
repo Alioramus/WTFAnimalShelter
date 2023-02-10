@@ -1,9 +1,8 @@
-﻿namespace AnimalShelter
+﻿namespace AnimalShelter;
+
+public enum ShelterActionStatus
 {
-    public enum ShelterActionStatus
-    {
-        Requested,
-        InProgress,
-        Finished
-    }
+    Requested,
+    InProgress,
+    Finished
 }
