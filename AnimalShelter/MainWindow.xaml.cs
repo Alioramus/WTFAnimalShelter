@@ -52,19 +52,6 @@ public partial class MainWindow
     }
     */
 
-    private void ShowAnimalsView(object sender, RoutedEventArgs e)
-    {
-        if (Animals.Count == 0)
-        {
-            MessageBox.Show("No animals in the shelter");
-            return;
-        }
-
-        var animalsWindow = new AnimalInfoWindow(Animals[0]);
-        animalsWindow.Show();
-        // ContentFrame.Navigate(animalsWindow);
-    }
-
     private void ShowKeeperView(object sender, RoutedEventArgs e)
     {
         if (Keepers.Count == 0)

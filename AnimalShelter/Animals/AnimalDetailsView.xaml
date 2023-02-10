@@ -3,9 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:AnimalShelter.Animals"
+             xmlns:common="clr-namespace:AnimalShelter"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="ShelterActionType"
+                            ObjectType="{x:Type common:ShelterActionType}"
+                            MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="common:ShelterActionType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    <StackPanel>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -57,4 +67,42 @@
             <TextBlock Text="{Binding SelectedAnimal.CurrentKeeper}" />
         </TextBlock>
     </Grid>
+        <TextBlock FontWeight="Bold" FontSize="22">Request Action</TextBlock>
+        <StackPanel>
+            <TextBlock>Action name:</TextBlock>
+            <TextBox Text="{Binding Request.Name}"></TextBox>
+        </StackPanel>
+        <StackPanel>
+            <TextBlock>Action type:</TextBlock>
+            <ComboBox SelectedValue="{Binding Request.Type}" 
+                      ItemsSource="{Binding Source={StaticResource ShelterActionType}}"
+                      SelectedItem="{x:Static common:ShelterActionType.WALK}" />
+        </StackPanel>
+        <StackPanel>
+            <TextBlock>Description:</TextBlock>
+            <TextBox Text="{Binding Request.Description}" MinLines="3"></TextBox>
+        </StackPanel>
+        <StackPanel>
+            <TextBlock>Assignee:</TextBlock>
+            <ComboBox SelectedValue="{Binding Request.AssigneeId}"
+                      ItemsSource="{Binding Source={StaticResource ShelterActionType}}"
+                      SelectedItem="{x:Static common:ShelterActionType.WALK}" />
+        </StackPanel>
+        <Button Command="{Binding MakeRequest}" CommandParameter="{Binding Request}">Request</Button>
+
+        <TextBlock FontWeight="Bold" FontSize="22">Requests History</TextBlock>
+        <ListView ItemsSource="{Binding SelectedAnimalActions}">
+            <ListView.View>
+                <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Animal Information">
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Id}" Header="Id" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="Name" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Type}" Header="Type" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Status}" Header="Status" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Assignee}" Header="Assignee" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Description}" Header="Description" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
+
 </UserControl>

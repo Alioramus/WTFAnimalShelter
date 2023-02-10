@@ -27,4 +27,5 @@ public class ShelterContext : DbContext
     public DbSet<Visit> Visits { get; set; }
     public DbSet<Vet> Vets { get; set; }
     public DbSet<VeterinaryRequest> VeterinaryRequests { get; set; }
+    public DbSet<ShelterAction> Actions { get; set; }
 }

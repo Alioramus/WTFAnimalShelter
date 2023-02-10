@@ -40,8 +40,7 @@ namespace AnimalShelter.Animals
                 //Keeper = CurrentKeeper.Text,
                 //AdoptedBy = AdoptedBy.Text,
             };
-            var nav = Application.Current.MainWindow.DataContext as NavigationViewModel;
-            var model = nav.SelectedViewModel as AnimalsModel;
+            var model = DataContext as AnimalsModel;
             model.AddAnimal(animal);
             MessageBox.Show("Animal added successfully.");
         }

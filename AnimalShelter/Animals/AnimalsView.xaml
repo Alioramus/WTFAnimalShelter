@@ -24,7 +24,7 @@
                     </Button.Style>
                     Show details
                 </Button>
-                <Button>
+                <Button Command="{Binding DeleteAnimal}" CommandParameter="{Binding SelectedAnimal}">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Visibility" Value="Visible"/>
