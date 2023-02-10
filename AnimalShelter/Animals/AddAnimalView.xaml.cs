@@ -26,8 +26,7 @@ public partial class AddAnimalView
             Description = AnimalDescription.Text,
             Size = (Size)AnimalSize.SelectedValue,
             Adopted = AnimalAdopted.IsChecked ?? false,
-            //Keeper = CurrentKeeper.Text,
-            //AdoptedBy = AdoptedBy.Text,
+            AdoptedBy = AdoptedBy.Text,
         };
         var model = DataContext as AnimalsModel;
         model.AddAnimal(animal);

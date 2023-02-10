@@ -53,15 +53,11 @@
             <TextBlock Text="Description: " FontWeight="Bold" />
             <TextBlock Text="{Binding SelectedAnimal.Description}" />
         </TextBlock>
-        <TextBlock Grid.Row="6">
+            <TextBlock Grid.Row="6">
             <TextBlock Text="Adopted: " FontWeight="Bold" />
             <TextBlock Text="{Binding SelectedAnimal.Adopted}" />
         </TextBlock>
-        <TextBlock Grid.Row="7">
-            <TextBlock Text="Current Keeper: " FontWeight="Bold" />
-            <TextBlock Text="{Binding SelectedAnimal.CurrentKeeper}" />
-        </TextBlock>
-    </Grid>
+        </Grid>
         <TextBlock FontWeight="Bold" FontSize="22">Request Action</TextBlock>
         <StackPanel>
             <TextBlock>Action name:</TextBlock>

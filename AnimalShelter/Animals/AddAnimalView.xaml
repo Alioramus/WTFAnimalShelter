@@ -86,12 +86,8 @@
             <CheckBox Name="AnimalAdopted" />
         </StackPanel>
         <StackPanel Grid.Row="7">
-            <TextBlock Text="Current Keeper: " FontWeight="Bold" />
-            <TextBox Name="AnimalCurrentKeeper" />
-        </StackPanel>
-        <StackPanel Grid.Row="8">
             <TextBlock Text="Adopted By: " FontWeight="Bold" />
-            <TextBox Name="AnimalAdoptedBy" />
+            <TextBox Name="AdoptedBy" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="9">
             <Button Click="AddAnimal">Add Animal</Button>
