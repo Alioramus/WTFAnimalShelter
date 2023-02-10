@@ -27,9 +27,7 @@
             <actions:ActionsView/>
 
         </DataTemplate>
-
-
-
+        
     </Window.Resources>
     <Grid>
         
@@ -37,12 +35,13 @@
         <DockPanel LastChildFill="True" Margin="15">
             <StackPanel x:Name="navigation" DockPanel.Dock="Left" Width="100" Margin="0 0 20 20">
 
-                <Button Content="Animals" Command="{Binding AnimalsListCommand}" Margin="5"></Button>
+                <Button Content="Animals" Command="{Binding AnimalsListCommand}" Margin="5" />
 
-                <Button Content="Visits" Command="{Binding EmpCommand}" Margin="5"></Button>
+                <Button Content="Visits" Command="{Binding EmpCommand}" Margin="5" />
 
-                <Button Content="Actions" Command="{Binding ActionsListCommand}" Margin="5"></Button>
+                <Button Content="Actions" Command="{Binding ActionsListCommand}" Margin="5" />
 
+                <Button Name="VeterinaryButton" Content="Veterinary"  Visibility="Collapsed" IsEnabled="False" Command="{Binding VeterinaryCommand}" />
             </StackPanel>
             <ContentControl x:Name="Pages" DockPanel.Dock="Right" Content="{Binding SelectedViewModel}"/>
         </DockPanel>
