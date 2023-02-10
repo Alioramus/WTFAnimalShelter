@@ -11,6 +11,32 @@
             <StackPanel Orientation="Horizontal">
                 <Button Click="ShowListAnimals">List animals</Button>
                 <Button Click="ShowAddAnimal">Add animal</Button>
+                <Button Click="ShowAnimalDetails">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedAnimal}" Value="{x:Null}">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    Show details
+                </Button>
+                <Button>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedAnimal}" Value="{x:Null}">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    Delete animal
+                </Button>
             </StackPanel>
             <ContentControl x:Name="contentControl"></ContentControl>
         </StackPanel>

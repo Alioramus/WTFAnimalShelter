@@ -35,5 +35,10 @@ namespace AnimalShelter.Animals
         {
             this.contentControl.Content = new AnimalListView();
         }
+
+        private void ShowAnimalDetails(object sender, RoutedEventArgs e)
+        {
+            this.contentControl.Content = new AnimalDetailsView();
+        }
     }
 }

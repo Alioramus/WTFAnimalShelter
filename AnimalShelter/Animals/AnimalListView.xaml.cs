@@ -24,5 +24,13 @@ namespace AnimalShelter.Animals
         {
             InitializeComponent();
         }
+
+        private void ShowAnimalDetails(object sender , EventArgs e)
+        {
+            var nav = Application.Current.MainWindow.DataContext as NavigationViewModel;
+            var model = nav.SelectedViewModel as AnimalsModel;
+            var list = sender as ListView;
+            model.SelectedAnimal = list.SelectedItem as Animal;
+        }
     }
 }

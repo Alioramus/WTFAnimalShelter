@@ -7,7 +7,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <DockPanel>
-            <ListView Name="AnimalList" ItemsSource="{Binding Animals}" DockPanel.Dock="Top">
+            <ListView Name="AnimalList" ItemsSource="{Binding Animals}" SelectedItem="{Binding SelectedAnimal}" SelectionMode="Single" DockPanel.Dock="Top">
                 <ListView.View>
                     <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Animal Information">
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Id}" Header="Id" Width="100"/>
