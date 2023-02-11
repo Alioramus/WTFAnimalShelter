@@ -16,7 +16,7 @@ public class Animal
     public int Age { get; set; }
     public string Description { get; set; }
     public bool Adopted { get; set; }
-    public string AdoptedBy { get; set; }
+    public string? AdoptedBy { get; set; }
 
     public void Update(ShelterContext context)
     {
