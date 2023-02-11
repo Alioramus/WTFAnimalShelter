@@ -64,7 +64,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="3">
-            <TextBlock Text="Gender: " FontWeight="Bold" />
+            <TextBlock Text="Size: " FontWeight="Bold" />
             <ComboBox Name="AnimalSize" 
                       ItemsSource="{Binding Source={StaticResource Size}}"
                       SelectedItem="{x:Static common:Size.Small}" />

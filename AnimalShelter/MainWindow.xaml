@@ -14,11 +14,6 @@
             <local:AnimalsView />
         </DataTemplate>
 
-
-        <DataTemplate DataType="{x:Type local:AnimalDetailsModel}">
-            <local:AnimalDetailsView />
-        </DataTemplate>
-
         <DataTemplate DataType="{x:Type actions:ActionsModel}">
             <actions:ActionsView />
         </DataTemplate>
@@ -37,7 +32,6 @@
             
             <StackPanel Name="KeeperPanel" DockPanel.Dock="Left" Width="100" Margin="0 0 20 20">
                 <Button Content="Animals" Command="{Binding AnimalsListCommand}" Margin="5" />
-                <Button Content="Visits" Command="{Binding EmpCommand}" Margin="5" />
                 <Button Content="Actions" Command="{Binding ActionsListCommand}" Margin="5" />
             </StackPanel>      
             
