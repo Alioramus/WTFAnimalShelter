@@ -27,22 +27,35 @@ public class AuthService : IAuthService
 
         Logger.Info($"User logged: {username}");
         var currentUser = App.CurrentUser = _context.Users.First(user => user.Username == username);
+        roleSetOrRecreate(currentUser);
+        return userLogged;
+    }
+
+    private void roleSetOrRecreate(User currentUser)
+    {
         switch (currentUser.Role)
         {
             case UserRole.Veterinarian:
-                App.CurrentVet = _context.Vets.First(vet => vet.User == currentUser);
+                var vet = _context.Vets.First(vet => vet.User == currentUser);
+                if (vet == null)
+                    RoleCreate(currentUser);
+                App.CurrentVet = vet;
                 break;
             case UserRole.Keeper:
-                App.CurrentKeeper = _context.Keepers.First(keeper => keeper.User == currentUser);
+                var keeper = _context.Keepers.First(keeper => keeper.User == currentUser);
+                if (keeper == null)
+                    RoleCreate(currentUser);
+                App.CurrentKeeper = keeper;
                 break;
             case UserRole.Administrator:
-                App.CurrentAdmin = _context.Admins.First(admin => admin.User == currentUser);
+                var admin = _context.Admins.First(admin => admin.User == currentUser);
+                if (admin == null)
+                    RoleCreate(currentUser);
+                App.CurrentAdmin = admin;
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(currentUser.Role), currentUser.Role, null);
         }
-        
-        return userLogged;
     }
 
     public (bool, Result) TryRegister(string username, string password, UserRole role)
@@ -59,6 +72,17 @@ public class AuthService : IAuthService
             Role = role
         };
 
+        RoleCreate(user);
+
+        _context.Users.Add(user);
+        _context.SaveChanges();
+        App.CurrentUser = user;
+        return (true, Result.Correct);
+    }
+
+    private void RoleCreate(User user)
+    {
+        var role = user.Role;
         switch (role)
         {
             case UserRole.Veterinarian:
@@ -88,10 +112,5 @@ public class AuthService : IAuthService
             default:
                 throw new ArgumentOutOfRangeException(nameof(role), role, null);
         }
-
-        _context.Users.Add(user);
-        _context.SaveChanges();
-        App.CurrentUser = user;
-        return (true, Result.Correct);
     }
 }

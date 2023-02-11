@@ -49,6 +49,15 @@ public class AdminModel : INotifyPropertyChanged
 
     public void DeleteUser()
     {
+        var admin = _context.Admins.FirstOrDefault(admin => admin.User == SelectedUser);
+        if (admin != null)
+            _context.Admins.Remove(admin);
+        var keeper = _context.Keepers.FirstOrDefault(keeper => keeper.User == SelectedUser);
+        if (keeper != null)
+            _context.Keepers.Remove(keeper);
+        var vet = _context.Vets.FirstOrDefault(vet => vet.User == SelectedUser);
+        if (vet != null)
+            _context.Vets.Remove(vet);
         _context.Users.Remove(SelectedUser);
         _context.SaveChanges();
         Users = _context.Users.Where(user => user != App.CurrentUser).ToList();
