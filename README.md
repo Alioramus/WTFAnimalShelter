@@ -26,9 +26,8 @@
 1. Pobierz repozytorium
 2. Uruchom plik .sln
 3. Uruchom projekt AnimalShelter
-4. Uruchom projekt AnimalShelter
-5. Zaloguj się do aplikacji lub zarejestruj nowe konto
-6. Możesz się zalogować jako administrator, opiekun lub weterynarz
+4. Zaloguj się do aplikacji lub zarejestruj nowe konto
+5. Możesz się zalogować jako administrator, opiekun lub weterynarz
 
 ### Użyte technologie i biblioteki:  
 * .NET 7.0
