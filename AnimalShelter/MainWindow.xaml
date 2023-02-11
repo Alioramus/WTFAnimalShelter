@@ -26,6 +26,10 @@
         <DataTemplate DataType="{x:Type animalShelter:VeterinaryModel}">
             <animalShelter:VeterinaryView />
         </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type animalShelter:AdminModel}">
+            <animalShelter:AdminView />
+        </DataTemplate>
 
     </Window.Resources>
     <Grid>
@@ -39,6 +43,10 @@
             
             <StackPanel Name="VeterinaryPanel" Visibility="Collapsed" DockPanel.Dock="Left" Width="100" Margin="0 0 20 20">
                 <Button Name="VeterinaryButton" Content="Veterinary"  IsEnabled="False" Command="{Binding VeterinaryCommand}" Margin="5" />
+            </StackPanel>       
+            
+            <StackPanel Name="AdminPanel" Visibility="Collapsed" DockPanel.Dock="Left" Width="100" Margin="0 0 20 20">
+                <Button Name="AdminButton" Content="Administration"  IsEnabled="False" Command="{Binding AdminCommand}" Margin="5" />
             </StackPanel>
             
             <ContentControl DockPanel.Dock="Right" Content="{Binding SelectedViewModel}" />

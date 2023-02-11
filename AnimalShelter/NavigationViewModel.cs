@@ -33,6 +33,7 @@ class NavigationViewModel : INotifyPropertyChanged
     public ICommand AnimalsListCommand { get; set; }
     public ICommand ActionsListCommand { get; set; }
     public ICommand VeterinaryCommand { get; set; }
+    public ICommand AdminCommand { get; set; }
 
     private object _selectedViewModel;
     private readonly ShelterContext _context;
@@ -49,11 +50,12 @@ class NavigationViewModel : INotifyPropertyChanged
 
     public NavigationViewModel(ShelterContext context)
     {
-        this._context = context;
+        _context = context;
         EmpCommand = new BaseCommand(OpenEmp);
         AnimalsListCommand = new BaseCommand(OpenAnimalsList);
         ActionsListCommand = new BaseCommand(OpenActionsList);
         VeterinaryCommand = new BaseCommand(OpenVeterinary);
+        AdminCommand = new BaseCommand(OpenAdmin);
     }
 
     private void OpenEmp(object obj)
@@ -74,6 +76,11 @@ class NavigationViewModel : INotifyPropertyChanged
     private void OpenVeterinary(object obj)
     {
         SelectedViewModel = new VeterinaryModel(_context);
+    }
+    
+    private void OpenAdmin(object obj)
+    {
+        SelectedViewModel = new AdminModel(_context);
     }
 
     public event PropertyChangedEventHandler PropertyChanged;

@@ -4,7 +4,7 @@ using Moq;
 
 namespace AnimalShelterE2E.Auth;
 
-public class LoginWindowE2ETests: E2ETests
+public class LoginWindowE2ETests : E2ETests
 {
     [UIFact]
     public void Login_WithValidCredentials_ShouldOpenMainWindow()
@@ -13,7 +13,7 @@ public class LoginWindowE2ETests: E2ETests
         var authServiceMock = new Mock<IAuthService>();
         authServiceMock.Setup(x => x.TryLogin(It.IsAny<string>(), It.IsAny<string>())).Returns(true);
         var loginWindow = new LoginWindow(authServiceMock.Object);
-        
+
         // Act
         loginWindow.UsernameText.Text = "username";
         loginWindow.PasswordText.Password = "password";
@@ -22,5 +22,4 @@ public class LoginWindowE2ETests: E2ETests
         // Assert
         Assert.True(Application.Current.MainWindow!.IsVisible);
     }
-
 }

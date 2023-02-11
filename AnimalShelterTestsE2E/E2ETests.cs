@@ -3,7 +3,7 @@ using AnimalShelter;
 
 namespace AnimalShelterE2E;
 
-public class E2ETests: IDisposable
+public class E2ETests : IDisposable
 {
     protected E2ETests()
     {
