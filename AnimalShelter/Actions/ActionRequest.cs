@@ -1,8 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-
-namespace AnimalShelter.Animals
+﻿namespace AnimalShelter.Animals
 {
     public class ActionRequest
     {

@@ -8,12 +8,36 @@
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" Height="40">
-                <Button Click="DeleteAccount" Margin="10 0 10 0">Delete account</Button>
-                <Button Click="EditAccount" Margin="10 0 10 0">Edit account</Button>
+                <Button Click="DeleteAccount" Margin="10 0 10 0">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="IsEnabled" Value="True" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedUser}" Value="{x:Null}">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    Delete account
+                </Button>
+                <Button Click="EditAccount" Margin="10 0 10 0">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="IsEnabled" Value="True" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedUser}" Value="{x:Null}">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    Edit account
+                </Button>
             </StackPanel>
             <DockPanel Height="Auto">
                 <ListView Height="Auto" Width="Auto" ItemsSource="{Binding Users}"
-                          SelectedItem="{Binding SelectedOpenRequest}" SelectionMode="Single" DockPanel.Dock="Top">
+                          SelectedItem="{Binding SelectedUser}" SelectionMode="Single" DockPanel.Dock="Top">
                     <ListView.View>
                         <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="List of accounts">
                             <GridViewColumn DisplayMemberBinding="{Binding Path=Id}" Header="Id" Width="100" />

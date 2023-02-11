@@ -11,11 +11,15 @@ public partial class AdminView
 
     private void DeleteAccount(object sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+       var adminModel = DataContext as AdminModel;
+       adminModel.DeleteUser();
     }
 
     private void EditAccount(object sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        var adminModel = DataContext as AdminModel;
+        var editAccountWindow = new EditAccountWindow(adminModel.SelectedUser);
+        editAccountWindow.Show();
+        
     }
 }
