@@ -118,7 +118,7 @@ public class VeterinaryModel : INotifyPropertyChanged
     public void EditRequestDetails()
     {
         if (SelectedRequest == null) return;
-        var veterinaryRequestWindow = new VeterinaryRequestWindow();
+        var veterinaryRequestWindow = new VeterinaryRequestWindow(SelectedRequest);
         veterinaryRequestWindow.DataContext = this;
         veterinaryRequestWindow.Show();
     }
