@@ -41,7 +41,8 @@ public partial class App
 
     private static void ConfigureLogging()
     {
-        LogManager.Setup().LoadConfiguration(builder => {
+        LogManager.Setup().LoadConfiguration(builder =>
+        {
             builder.ForLogger().FilterMinLevel(LogLevel.Info).WriteToConsole();
             builder.ForLogger().FilterMinLevel(LogLevel.Debug).WriteToFile(fileName: "file.txt");
         });
@@ -70,7 +71,7 @@ public partial class App
 
     [DllImport("kernel32.dll")]
     private static extern bool AttachConsole(int dwProcessId);
-    
+
     /// <summary>
     ///     Redirects the console output of the current process to the parent process.
     /// </summary>

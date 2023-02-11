@@ -1,6 +1,5 @@
-﻿namespace AnimalShelter.Animals
+﻿namespace AnimalShelter.Animals;
+
+public class AnimalDetailsModel
 {
-    public class AnimalDetailsModel
-    {
-    }
 }

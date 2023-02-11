@@ -7,13 +7,13 @@
         Title="EditAccountWindow" Height="450" Width="800">
     <Grid>
         <StackPanel Margin="20" DataContext="{Binding SelectedRequest}">
-            
+
             <TextBlock Text="Username" Margin="0,10,0,5" />
             <TextBox x:Name="Username" />
 
             <TextBlock Text="Password" Margin="0,10,0,5" />
             <PasswordBox x:Name="Password" />
-            
+
             <TextBlock Text="Role" Margin="0,10,0,5" />
             <ComboBox x:Name="RoleCombo" SelectedIndex="0">
                 <ComboBoxItem Content="Keeper" />

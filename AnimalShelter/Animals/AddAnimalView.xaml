@@ -1,10 +1,10 @@
-﻿<UserControl x:Class="AnimalShelter.Animals.AddAnimalView"
+﻿<UserControl x:Class="AnimalShelter.AddAnimalView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:common="clr-namespace:AnimalShelter"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <ObjectDataProvider x:Key="Gender"
@@ -14,7 +14,7 @@
                 <x:Type TypeName="common:Gender" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
-        
+
         <ObjectDataProvider x:Key="Species"
                             ObjectType="{x:Type common:Species}"
                             MethodName="GetValues">
@@ -43,7 +43,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <StackPanel>
@@ -53,12 +53,12 @@
 
         <StackPanel Grid.Row="1">
             <TextBlock Text="Age" FontWeight="Bold" />
-            <TextBox Name="AnimalAge" Text="0" PreviewTextInput="NumberValidationTextBox"/>
+            <TextBox Name="AnimalAge" Text="0" PreviewTextInput="NumberValidationTextBox" />
         </StackPanel>
 
         <StackPanel Grid.Row="2">
             <TextBlock Text="Species: " FontWeight="Bold" />
-            <ComboBox Name="AnimalSpecies" 
+            <ComboBox Name="AnimalSpecies"
                       ItemsSource="{Binding Source={StaticResource Species}}"
                       SelectedItem="{x:Static common:Species.Dog}" />
         </StackPanel>
@@ -72,7 +72,7 @@
 
         <StackPanel Grid.Row="4">
             <TextBlock Text="Gender: " FontWeight="Bold" />
-            <ComboBox Name="AnimalGender" 
+            <ComboBox Name="AnimalGender"
                       ItemsSource="{Binding Source={StaticResource Gender}}"
                       SelectedItem="{x:Static common:Gender.Male}" />
         </StackPanel>

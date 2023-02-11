@@ -21,7 +21,7 @@ public class AdminModel : INotifyPropertyChanged
             OnPropertyChanged("Users");
         }
     }
-    
+
     private User _selectedUser;
 
     public User SelectedUser
@@ -67,6 +67,6 @@ public class AdminModel : INotifyPropertyChanged
     {
         _context.Users.Update(selectedUser);
         _context.SaveChanges();
-        Users = _context.Users.Where(user => user != App.CurrentUser).ToList(); 
+        Users = _context.Users.Where(user => user != App.CurrentUser).ToList();
     }
 }

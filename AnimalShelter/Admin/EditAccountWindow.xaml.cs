@@ -5,7 +5,7 @@ namespace AnimalShelter;
 public partial class EditAccountWindow
 {
     public User SelectedUser { get; set; }
-    
+
     public EditAccountWindow(User selectedUser)
     {
         InitializeComponent();
@@ -18,7 +18,11 @@ public partial class EditAccountWindow
     private void Save_Click(object sender, RoutedEventArgs e)
     {
         var adminModel = DataContext as AdminModel;
-        
+        SelectedUser.Username = Username.Text;
+        SelectedUser.Password = Password.Password;
+        UserRole role;
+        UserRole.TryParse(RoleCombo.Text, out role);
+        SelectedUser.Role = role;
         adminModel.SaveUser(SelectedUser);
         Close();
     }

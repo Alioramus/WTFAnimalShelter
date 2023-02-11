@@ -1,4 +1,4 @@
-﻿namespace AnimalShelter.Animals;
+﻿namespace AnimalShelter;
 
 /// <summary>
 /// Logika interakcji dla klasy UserControl1.xaml

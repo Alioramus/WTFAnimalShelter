@@ -8,8 +8,7 @@ namespace AnimalShelter;
 /// </summary>
 public class Visit
 {
-    [Key]
-    public int Id { get; set; }
+    [Key] public int Id { get; set; }
     public DateTime Date { get; set; }
     public Reasons Reason { get; set; }
     public Animal Animal { get; set; }

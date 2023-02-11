@@ -8,6 +8,7 @@ namespace AnimalShelter.Actions
     {
         private List<User> Users { get; set; }
         private List<ShelterAction> actions { get; set; }
+
         public List<ShelterAction> Actions
         {
             get
@@ -20,16 +21,14 @@ namespace AnimalShelter.Actions
                 OnPropertyChanged("ActionsRequests");
             }
         }
+
         private ShelterContext context { get; set; }
+
         public ActionsModel(ShelterContext context)
         {
             Actions = context.Actions.ToList();
             Users = context.Users.ToList();
             this.context = context;
-            // Debug.WriteLine("HEJ HEJ: " + ActionsRequests.Count);
-            // request = new ActionRequest();
-            // DeleteAnimal = new BaseCommand(deleteAnimal);
-            // MakeRequest = new BaseCommand(makeRequest);
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -39,7 +38,6 @@ namespace AnimalShelter.Actions
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propName));
-
             }
         }
     }

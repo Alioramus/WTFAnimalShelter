@@ -27,9 +27,9 @@ public partial class UsernameService : IUsernameService
         var matched = regex.IsMatch(username);
         if (!matched)
             Logger.Warn("Username doesn't match regex.");
-        return matched  ? (true, Result.Correct) : (false, Result.InvalidCharacters);
+        return matched ? (true, Result.Correct) : (false, Result.InvalidCharacters);
     }
-    
+
     // start with a letter, allow letter or number
     [GeneratedRegex("^[a-zA-Z][a-zA-Z0-9]+$")]
     private static partial Regex UsernameMatchRegex();

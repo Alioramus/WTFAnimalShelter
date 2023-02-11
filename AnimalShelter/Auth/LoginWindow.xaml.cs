@@ -19,7 +19,7 @@ public partial class LoginWindow
         using var scope = App.AppContainer.BeginLifetimeScope();
         _authService = scope.Resolve<IAuthService>();
     }
-    
+
     public LoginWindow(IAuthService authService)
     {
         InitializeComponent();
@@ -37,7 +37,8 @@ public partial class LoginWindow
             Application.Current.MainWindow = mainWindow;
             mainWindow.Show();
             Close();
-        } else
+        }
+        else
         {
             MessageBox.Show("Invalid credentials.");
         }

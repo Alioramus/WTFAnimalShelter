@@ -25,4 +25,3 @@ public partial class KeeperWindow
         Close();
     }
 }
-

@@ -2,8 +2,9 @@
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
+using AnimalShelter.Animals;
 
-namespace AnimalShelter.Animals;
+namespace AnimalShelter;
 
 /// <summary>
 /// Logika interakcji dla klasy AddAnimalView.xaml
@@ -14,6 +15,7 @@ public partial class AddAnimalView
     {
         InitializeComponent();
     }
+
     private void AddAnimal(object sender, RoutedEventArgs e)
     {
         var animal = new Animal

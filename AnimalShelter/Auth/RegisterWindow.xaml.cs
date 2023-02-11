@@ -56,13 +56,13 @@ public partial class RegisterWindow
             Logger.Info("Registration successful.");
             Close();
         }
-        else if(result == Result.UsernameDuplicated)
+        else if (result == Result.UsernameDuplicated)
         {
             MessageBox.Show("Nazwa użytkownika jest już zajęta.", "Błąd", MessageBoxButton.OK,
                 MessageBoxImage.Asterisk);
             Logger.Warn("Username is already taken.");
         }
-        else 
+        else
         {
             MessageBox.Show("Wystąpił błąd podczas rejestracji.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             Logger.Info("Registration failed.");

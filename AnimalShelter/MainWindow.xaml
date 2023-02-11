@@ -10,18 +10,18 @@
         Title="MainWindow" Height="800" Width="800">
     <Window.Resources>
 
-        <DataTemplate DataType="{x:Type local:AnimalsModel}">
+        <DataTemplate DataType="{x:Type animalShelter:AnimalsModel}">
             <local:AnimalsView />
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type actions:ActionsModel}">
             <actions:ActionsView />
         </DataTemplate>
-        
+
         <DataTemplate DataType="{x:Type animalShelter:VeterinaryModel}">
             <animalShelter:VeterinaryView />
         </DataTemplate>
-        
+
         <DataTemplate DataType="{x:Type animalShelter:AdminModel}">
             <animalShelter:AdminView />
         </DataTemplate>
@@ -29,20 +29,23 @@
     </Window.Resources>
     <Grid>
         <DockPanel LastChildFill="True" Margin="15">
-            
+
             <StackPanel Name="KeeperPanel" DockPanel.Dock="Left" Width="100" Margin="0 0 20 20">
                 <Button Content="Animals" Command="{Binding AnimalsListCommand}" Margin="5" />
                 <Button Content="Actions" Command="{Binding ActionsListCommand}" Margin="5" />
-            </StackPanel>      
-            
-            <StackPanel Name="VeterinaryPanel" Visibility="Collapsed" DockPanel.Dock="Left" Width="100" Margin="0 0 20 20">
-                <Button Name="VeterinaryButton" Content="Veterinary"  IsEnabled="False" Command="{Binding VeterinaryCommand}" Margin="5" />
-            </StackPanel>       
-            
-            <StackPanel Name="AdminPanel" Visibility="Collapsed" DockPanel.Dock="Left" Width="100" Margin="0 0 20 20">
-                <Button Name="AdminButton" Content="Administration"  IsEnabled="False" Command="{Binding AdminCommand}" Margin="5" />
             </StackPanel>
-            
+
+            <StackPanel Name="VeterinaryPanel" Visibility="Collapsed" DockPanel.Dock="Left" Width="100"
+                        Margin="0 0 20 20">
+                <Button Name="VeterinaryButton" Content="Veterinary" IsEnabled="False"
+                        Command="{Binding VeterinaryCommand}" Margin="5" />
+            </StackPanel>
+
+            <StackPanel Name="AdminPanel" Visibility="Collapsed" DockPanel.Dock="Left" Width="100" Margin="0 0 20 20">
+                <Button Name="AdminButton" Content="Administration" IsEnabled="False" Command="{Binding AdminCommand}"
+                        Margin="5" />
+            </StackPanel>
+
             <ContentControl DockPanel.Dock="Right" Content="{Binding SelectedViewModel}" />
         </DockPanel>
     </Grid>

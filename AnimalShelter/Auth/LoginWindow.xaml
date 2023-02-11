@@ -14,7 +14,7 @@
                          x:FieldModifier="public" />
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                 <Button x:Name="LoginButton" IsEnabled="False" IsDefault="True" Click="Login_Click" Content="Login" />
-                <Button x:Name="RegisterButton" Content="Register" Click="Register_Click" Margin="10 0 0 0"/>
+                <Button x:Name="RegisterButton" Content="Register" Click="Register_Click" Margin="10 0 0 0" />
             </StackPanel>
         </StackPanel>
     </Grid>

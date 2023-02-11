@@ -6,9 +6,7 @@ namespace AnimalShelter;
 
 public class Animal
 {
-
-    [Key]
-    public int Id { get; set; }
+    [Key] public int Id { get; set; }
     public string Name { get; set; }
     public Species Species { get; set; }
     public Gender Gender { get; set; }
@@ -55,6 +53,7 @@ public class Animal
         }
     }
 }
+
 public enum Species
 {
     Dog,
@@ -62,12 +61,14 @@ public enum Species
     Bird,
     Other
 }
+
 public enum Size
 {
     Big,
     Small,
     Medium
 }
+
 public enum Gender
 {
     Male,

@@ -77,7 +77,7 @@ class NavigationViewModel : INotifyPropertyChanged
     {
         SelectedViewModel = new VeterinaryModel(_context);
     }
-    
+
     private void OpenAdmin(object obj)
     {
         SelectedViewModel = new AdminModel(_context);
