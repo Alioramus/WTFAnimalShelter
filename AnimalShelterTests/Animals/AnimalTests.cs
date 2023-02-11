@@ -1,17 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using AnimalShelter;
+﻿using AnimalShelter;
 using AnimalShelter.Animals;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Windows.Input;
-using AnimalShelter.Animals;
-using Moq;
-using Xunit;
 using Autofac;
 
 namespace AnimalShelterTests.Animals;
-
 
 public class AnimalsModelTests : InMemoryDbTests
 {
@@ -30,7 +21,6 @@ public class AnimalsModelTests : InMemoryDbTests
             Age = 15,
             Description = "Talkactive",
             Adopted = false
-
         };
 
         // Act
@@ -55,7 +45,6 @@ public class AnimalsModelTests : InMemoryDbTests
             Age = 15,
             Description = "Talkactive",
             Adopted = false
-
         };
         context.Animals.Add(animal);
         context.SaveChanges();
@@ -85,7 +74,6 @@ public class AnimalsModelTests : InMemoryDbTests
             Age = 15,
             Description = "Talkactive",
             Adopted = false
-
         };
         var action = new ShelterAction
         {
@@ -123,19 +111,18 @@ public class AnimalsModelTests : InMemoryDbTests
             Age = 15,
             Description = "Talkactive",
             Adopted = false
-
         };
         var request = new ActionRequest
         {
             Name = "TestRequest",
-            Type = ShelterActionType.VET_VISIT,
+            Type = ShelterActionType.VetVisit,
             Description = "testDescription"
         };
         var expectedAction = new ShelterAction
         {
             Id = 1,
             Name = "TestRequest",
-            Type = ShelterActionType.VET_VISIT,
+            Type = ShelterActionType.VetVisit,
             Description = "testDescription",
             Assignee = null,
             Animal = animal,
@@ -152,12 +139,12 @@ public class AnimalsModelTests : InMemoryDbTests
         // Assert
         Assert.Contains(context.Actions.ToList(),
             x => x.Id == expectedAction.Id &&
-            x.Name == expectedAction.Name &&
-            x.Type == expectedAction.Type &&
-            x.Description == expectedAction.Description &&
-            x.Assignee == expectedAction.Assignee &&
-            x.Animal == expectedAction.Animal &&
-            x.Status == expectedAction.Status
-            );
+                 x.Name == expectedAction.Name &&
+                 x.Type == expectedAction.Type &&
+                 x.Description == expectedAction.Description &&
+                 x.Assignee == expectedAction.Assignee &&
+                 x.Animal == expectedAction.Animal &&
+                 x.Status == expectedAction.Status
+        );
     }
 }

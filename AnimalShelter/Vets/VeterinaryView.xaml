@@ -3,27 +3,70 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:animalShelter="clr-namespace:AnimalShelter"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel>
-            <StackPanel Orientation="Horizontal" Height="40">
-                <Button Click="ShowOpenRequests" Margin="10 0 10 10">Show open veterinary requests</Button>
-                <Button Click="ShowVeterinaryRequests" Margin="10 0 10 10">Show assigned requests</Button>
-                <Button Click="EditVetDetails" Margin="10 0 10 10">Edit veterinary details</Button>
-                <!-- <Button Click="EditVetDetails" Margin="10 0 10 10"> -->
-                <!--         <Style TargetType="{x:Type Button}"> -->
-                <!--     <Button.Style> -->
-                <!--             <Setter Property="Visibility" Value="Visible"/> -->
-                <!--             <Style.Triggers> -->
-                <!--                 <DataTrigger Binding="{Binding SelectedAnimal}" Value="{x:Null}"> -->
-                <!--                     <Setter Property="Visibility" Value="Hidden"/> -->
-                <!--                 </DataTrigger> -->
-                <!--             </Style.Triggers> -->
-                <!--         </Style> -->
-                <!--     </Button.Style> -->
-                <!--     Edit veterinary details -->
-                <!-- </Button> -->
+            <StackPanel Orientation="Horizontal" Margin="10" Height="40">
+                <Button Click="ShowOpenRequests" Margin="10 0 10 0">Show open requests</Button>
+
+                <Button Click="ShowVeterinaryRequests" Margin="10 0 10 0">Show assigned requests</Button>
+
+                <Button Click="EditVetDetails" Margin="10 0 10 0">Edit veterinary details</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="40" Margin="10 0 0 0">
+                <Button Click="AssignRequest" Margin="10 0 10 10">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedOpenRequest}" Value="{x:Null}">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    Take request
+                </Button>
+
+                <Button Click="EditRequestDetails" Margin="10 0 10 10">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Setter Property="IsEnabled" Value="True" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedRequest}" Value="{x:Null}">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding SelectedRequest.ShelterAction.Status}"
+                                             Value="{x:Static animalShelter:ShelterActionStatus.Finished}">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    Edit request
+                </Button>
+
+                <Button Click="CloseRequest" Margin="10 0 10 10">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Setter Property="IsEnabled" Value="True" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=SelectedRequest}" Value="{x:Null}">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=SelectedRequest.ShelterAction.Status}"
+                                             Value="{x:Static animalShelter:ShelterActionStatus.Finished}">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    Close request
+                </Button>
             </StackPanel>
             <ContentControl x:Name="ContentControl" />
         </StackPanel>

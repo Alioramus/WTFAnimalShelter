@@ -6,9 +6,9 @@ namespace AnimalShelter;
 public partial class VetDetailsWindow
 {
     private readonly ShelterContext _context;
-    
+
     public Vet Vet { get; set; }
-    
+
     public VetDetailsWindow(Vet vet)
     {
         InitializeComponent();

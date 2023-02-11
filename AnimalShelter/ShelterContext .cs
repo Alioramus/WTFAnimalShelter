@@ -1,5 +1,4 @@
-﻿using AnimalShelter.Animals;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 namespace AnimalShelter;
 
 public class ShelterContext : DbContext

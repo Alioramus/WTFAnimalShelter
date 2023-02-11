@@ -9,12 +9,12 @@
     <Grid>
         <StackPanel Margin="20">
             <TextBlock Text="First Name" Margin="0,10,0,5" />
-            <TextBox x:Name="FirstNameText"  />        
+            <TextBox x:Name="FirstNameText" />
             <TextBlock Text="Last Name" Margin="0,10,0,5" />
-            <TextBox x:Name="LastNameText"  />
+            <TextBox x:Name="LastNameText" />
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                 <Button IsDefault="True" Click="Save_Click" Content="Save" />
-                <Button Content="Cancel" Click="Cancel_Click" Margin="10 0 0 0"/>
+                <Button Content="Cancel" Click="Cancel_Click" Margin="10 0 0 0" />
             </StackPanel>
         </StackPanel>
     </Grid>

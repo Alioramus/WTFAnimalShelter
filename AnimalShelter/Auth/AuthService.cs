@@ -34,7 +34,6 @@ public class AuthService : IAuthService
                 break;
             case UserRole.Keeper:
                 App.CurrentKeeper = _context.Keepers.First(keeper => keeper.User == currentUser);
-
                 break;
             case UserRole.Administrator:
                 App.CurrentAdmin = _context.Admins.First(admin => admin.User == currentUser);

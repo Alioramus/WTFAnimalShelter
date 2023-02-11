@@ -13,7 +13,9 @@ public class AuthServiceTests : InMemoryDbTests
             const string password = "valid_password";
 
             var context = App.AppContainer.Resolve<ShelterContext>();
-            context.Users.Add(new User { Username = username, Password = password, Role = UserRole.Keeper });
+            var user = new User { Username = username, Password = password, Role = UserRole.Keeper };
+            context.Users.Add(user);
+            context.Keepers.Add (new Keeper { User = user });
             context.SaveChanges();
             var authService = new AuthService(context);
             
