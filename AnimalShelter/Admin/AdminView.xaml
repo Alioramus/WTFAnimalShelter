@@ -6,6 +6,23 @@
         mc:Ignorable="d"
         Height="450" Width="800">
     <Grid>
-        
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" Height="40">
+                <Button Click="DeleteAccount" Margin="10 0 10 0">Delete account</Button>
+                <Button Click="EditAccount" Margin="10 0 10 0">Edit account</Button>
+            </StackPanel>
+            <DockPanel Height="Auto">
+                <ListView Height="Auto" Width="Auto" ItemsSource="{Binding Users}"
+                          SelectedItem="{Binding SelectedOpenRequest}" SelectionMode="Single" DockPanel.Dock="Top">
+                    <ListView.View>
+                        <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="List of accounts">
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=Id}" Header="Id" Width="100" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=Username}" Header="Username" Width="100" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=Role}" Header="Role" Width="100" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </DockPanel>
+        </StackPanel>
     </Grid>
 </UserControl>
